@@ -87,6 +87,15 @@
             margin-bottom: 30px; /* Aumenta a margem inferior entre as duas linhas */
         }
 
+        /* Margem personalizada entre a imagem 1 e a imagem 2, e entre a imagem 3 e a imagem 4 */
+        .container .perfil:nth-child(1) {
+            margin-right: 15px; /* Distância extra entre a imagem 1 e a imagem 2 */
+        }
+
+        .container .perfil:nth-child(3) {
+            margin-right: 15px; /* Distância extra entre a imagem 3 e a imagem 4 */
+        }
+
         /* Media Queries para telas menores */
         @media (max-width: 768px) {
             h1 {
@@ -100,6 +109,11 @@
             .perfil {
                 width: 45%; /* Ajusta a largura dos perfis para telas menores */
                 max-width: 150px; /* Limita a largura para que se ajustem bem */
+            }
+
+            .container .perfil:nth-child(1),
+            .container .perfil:nth-child(3) {
+                margin-right: 10px; /* Distância menor entre as imagens em telas menores */
             }
         }
 

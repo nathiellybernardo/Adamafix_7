@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Filme</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
+        }
+
+        .info {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            max-width: 600px;
+         
+        }
+
+        .logo {
+            width: 300px; /* Ajuste o tamanho conforme necessário */
+            margin-bottom: -100px;
+            margin-top:180px;
+            margin-left: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .play-button, .more-info-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+        .play-button {
+            background-color: #e50914;
+        }
+
+        .more-info-button {
+            background-color: #e50914;
+            color: rgb(255, 255, 255);
+        }
+
+        .play-button:hover {
+            background-color: #f40612;
+        }
+
+        .more-info-button:hover, 
+        .play-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video autoplay muted loop>
+            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+            Seu navegador não suporta vídeo.
+        </video>
+     
+            <div class="logo"><img src="imagens/addams.png" alt="Logo Família Addams" class="logo"> <!-- Substitua pelo caminho da sua logo --></div>   
+               <div class="info">
+            <p>Descrição do filme. Uma breve sinopse que captura a essência da história, com um resumo dos principais pontos e o que o torna interessante.</p>
+            <div class="buttons">
+            
+              <a href="teatro.html"><button class="play-button">Voltar ao início</button></a>
+             <a href= "maisinfosgeral.html"><button class="more-info-button">Mais Informações</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix UI Clone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+        }
+
+        /* Estilo para o vídeo de fundo */
+        .header {
+            position: relative;
+            height: 75vh; /* Aumenta a altura do vídeo */
+            overflow: hidden;
+        }
+
+        .header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: brightness(50%);
+        }
+
+        .header-info {
+            position: absolute;
+            top: 50%; /* Mover o texto para o centro vertical */
+            left: 20px;
+            transform: translateY(-50%); /* Centralizar verticalmente */
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 50%;
+            max-height: 200px; /* Limita a altura */
+            overflow: auto; /* Adiciona rolagem se necessário */
+        }
+
+        .header-info h1 {
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        .header-info p {
+            margin: 10px 0;
+            font-size: 1em;
+            line-height: 1.3em;
+            max-width: 90%;
+            text-align: justify;
+        }
+
+        .header-info .rating {
+            color: #f5c518;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .header-info .year {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Gradiente na parte inferior do vídeo */
+        .gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%; /* Aumenta a altura do gradiente */
+            background: linear-gradient(to top, rgba(20, 20, 20, 1), rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0)); /* Gradiente acentuado */
+            z-index: 1; /* Coloca o gradiente acima do vídeo */
+        }
+
+        .header-info a {
+    text-decoration: none; 
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        .section h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.5em;
+        }
+
+        .movie-row {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .movie {
+            min-width: 200px;
+            margin-right: 15px;
+        }
+
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .movie img:hover {
+            transform: scale(1.1);
+        }
+
+        .recent-section h2 {
+            font-size: 1.3em;
+        }
+
+        /* Estilo do botão "Voltar para o Início" */
+        .back-button {
+            display: block;
+            margin-top: 20px; /* Espaço acima do botão */
+            background-color: #e50914; /* Cor de fundo do botão */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            z-index: 2; /* Fica acima do vídeo */
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #f61224; /* Cor ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section com Vídeo de Fundo -->
+    <div class="header">
+        <video autoplay muted loop>
+            <source src="videos/videorapunzel.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="gradient"></div> <!-- Gradiente -->
+        <div class="header-info">
+            <h1>Enrolados</h1>
+            <div class="rating">★ ★ ★ ★ ☆</div>
+            <div class="year">2010 | 1h 40m</div>
+            <!-- Botão "Voltar para o Início" abaixo das informações do filme -->
+           <a href="entrada.html"> <button class="back-button" onclick="window.scrollTo(0, 0);">Voltar para o Início</button></a>
+        </div>
+    </div>
+
+    <!-- Populares Section -->
+    <div class="section">
+        <h2>Populares na Netflix</h2>
+        <div class="movie-row">
+            <div class="movie">
+                <img src="imagens/filme1.png" alt="House of Cards">
+            </div>
+            <div class="movie">
+                <img src="imagens/filme2.png" alt="Better Call Saul">
+            </div>
+            <div class="movie">
+                <img src="imagens/filme3.png" alt="Filme 3">
+            </div>
+            <div class="movie">
+                <img src="imagens/filme4.png" alt="Unbreakable Kimmy Schmidt">
+            </div>
+        </div>
+    </div>
+
+    <!-- Recentemente Assistidos Section -->
+    <div class="section recent-section">
+        <h2>Assistidos Recentemente</h2>
+        <div class="movie-row">
+            <div class="movie">
+                <img src="https://i.imgur.com/hzL5FfP.jpg" alt="Orange is the New Black">
+            </div>
+            <div class="movie">
+                <img src="https://i.imgur.com/fIxOkDi.jpg" alt="Vampire Diaries">
+            </div>
+            <div class="movie">
+                <img src="https://i.imgur.com/fD5gQdj.jpg" alt="Spartacus">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

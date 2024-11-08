@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+            
+        }
+
+        /* Estilo para o vídeo de fundo */
+        .header {
+            position: relative;
+            height: 75vh;
+            overflow: hidden;
+            
+        }
+
+        .header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: brightness(50%);
+        }
+
+        .header-info {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 50%;
+            max-height: 200px;
+            overflow: hidden;
+         
+        }
+
+        .header-info h1 {
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        .header-info .rating {
+            color: #f5c518;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .header-info .year {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        .gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(20, 20, 20, 1), rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0));
+            z-index: 1;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #e50914;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            z-index: 2;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #f61224;
+        }
+
+        .sound-icon {
+            font-size: 2em; /* Tamanho do ícone */
+            display: inline-block; /* Para alinhar ao lado do botão */
+            margin-left: 10px; /* Espaçamento entre o botão e o ícone */
+            vertical-align: middle; /* Alinha verticalmente com o botão */
+            transition: transform 0.3s, color 0.3s; /* Transição suave */
+        }
+
+        .sound-icon:hover {
+            transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+            color: #e50914; /* Muda a cor ao passar o mouse */
+        }
+
+        .muted {
+            text-decoration: line-through; /* Corta o ícone quando mutado */
+        }
+
+        .container {
+            display: flex;
+            gap: 2px;
+            overflow-x: auto;
+            width: 100%;
+            margin-left: 4%;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            margin-top:-60px;
+            margin-bottom: 2px;
+
+        }
+     
+
+        /* Ajuste para subir o primeiro container */
+        .container:first-of-type {
+            margin-top: -30px; /* Ajuste conforme necessário */
+        }
+
+        .container img {
+            height: 500px;
+            transition: transform 0.3s;
+        }
+
+        .container img:hover {
+            transform: scale(1.1);
+        }
+
+        .film {
+            text-align: center; /* Centraliza o texto abaixo da imagem */
+        }
+
+        .film-title {
+            margin-top: -130px; /* Menos espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left: 90px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section com Vídeo de Fundo -->
+    <div class="header">
+        <video id="background-video" autoplay muted>
+            <source src="videos/Cantandonachuva.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="gradient"></div>
+        <div class="header-info">
+            <h1>Cantando na Chuva</h1>
+            <div class="rating">★ ★ ★ ★ ★ </div>
+            <div class="year">1952 | 1h 43m</div>
+            <button class="back-button" onclick="location.href='entrada.html'">Voltar para o Início</button>
+            <span id="sound-icon" class="sound-icon muted">🔇</span> <!-- Ícone de som -->
+        </div>
+    </div>
+
+    <h2>Recomendados</h2>
+
+    <div class="container">
+        <div class="film">
+            <a href="filme1.html"><img src="imagens/filme1.png" alt="Filme 1"></a>
+            <b><div class="film-title">Cantando na Chuva</div></b>
+        </div>
+        <div class="film">
+            <a href="filme2.html"><img src="imagens/filme2.png" alt="Filme 2"></a>
+            <div class="film-title">Guardiões da Galáxia</div>
+        </div>
+        <div class="film">
+            <a href="filme3.html"><img src="imagens/filme3.png" alt="Filme 3"></a>
+            <div class="film-title">Estúpido Cupido</div>
+        </div>
+        <div class="film">
+            <a href="filme4.html"><img src="imagens/filme4.png" alt="Filme 4"></a>
+            <div class="film-title">Enrolados</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="film">
+            <a href="filme5.html"><img src="imagens/filme5.png" alt="Filme 5"></a>
+            <div class="film-title">FootLoose</div>
+        </div>
+        <div class="film">
+            <a href="filme6.html"><img src="imagens/filme6.png" alt="Filme 6"></a>
+            <div class="film-title">Dirty Dancing</div>
+        </div>
+        <div class="film">
+            <a href="filme7.html"><img src="imagens/filme7.png" alt="Filme 7"></a>
+            <div class="film-title">Shrek 3</div>
+        </div>
+        <div class="film">
+            <a href="filme8.html"><img src="imagens/filme8.png" alt="Filme 8"></a>
+            <div class="film-title">Madagascar 3</div>
+        </div>
+    </div>
+
+    <!-- Script para iniciar o vídeo com som após interação -->
+    <script>
+        var video = document.getElementById('background-video');
+        var soundIcon = document.getElementById('sound-icon');
+
+        document.body.addEventListener('click', function() {
+            if (video.muted) {
+                video.muted = false; // Remove o mute
+                soundIcon.classList.remove('muted'); // Remove a classe de mute
+                soundIcon.textContent = '🔊'; // Ícone de som
+            } else {
+                video.muted = true; // Ativa o mute
+                soundIcon.classList.add('muted'); // Adiciona a classe de mute
+                soundIcon.textContent = '🔇'; // Ícone de som cortado
+            }
+            video.play(); // Inicia a reprodução do vídeo
+        });
+    </script>
+
+</body>
+</html>

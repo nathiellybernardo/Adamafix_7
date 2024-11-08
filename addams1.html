@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Família Addams 1938</title>
+    <!-- Importando a fonte Anton do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Corpo da página */
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Divisão das metades da página */
+        .left-section, .right-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        /* Estilo da metade esquerda (branca) para o texto, ocupando mais espaço */
+        .left-section {
+            background-color: #f2f2f2;
+            color: #333;
+            width: 60%;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 60px;
+        }
+
+        /* Estilo do título e do texto */
+        .left-section p.title {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .left-section h1 {
+            color: #d40000;
+            font-size: 4em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .left-section p.description {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 90%;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        /* Estilo da metade direita (preta) para as imagens, ocupando menos espaço */
+        .right-section {
+            background-color: #333;
+            background-image: url('imagens/textura.jpeg'); /* Adiciona a textura */
+            background-size: cover; /* Faz a textura cobrir todo o fundo */
+            background-position: center; /* Centraliza a textura */
+            background-repeat: repeat; /* Faz a textura se repetir caso não cubra toda a área */
+            width: 50%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilo das imagens sobrepostas */
+        .right-section img {
+            width: 80%;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            position: absolute;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        /* Primeira imagem posicionada mais para cima */
+        .right-section img:first-child {
+            top: 20%;
+            left: -30%;
+            z-index: 1;
+        }
+
+        /* Segunda imagem posicionada mais para baixo e à direita, para sobreposição */
+        .right-section img:last-child {
+            top: 40%;
+            left: 10%;
+            z-index: 2;
+        }
+
+        /* Efeito de zoom ao passar o mouse */
+        .right-section img:hover {
+            transform: scale(1.05);
+        }
+        .button-container {
+
+    display: flex;
+    justify-content: left; 
+    gap: 20px;
+    position: absolute;
+    bottom: 60px; /* Ajuste esse valor para mover os botões mais para cima ou para baixo */
+    width: 100%;
+    left:60px;
+    animation: slideIn 1.5s ease-out;
+   
+}
+
+        .button {
+            background-color: #d40000;
+            color: white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-transform: arial;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+          
+            
+
+        }
+
+        .button:hover {
+            background-color: #b30000;
+            opacity: 0.7;
+        }
+
+        /* Animação para aparecer da esquerda para a direita */
+        @keyframes slideIn{
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Metade esquerda com fundo branco e texto -->
+    <div class="left-section">
+        <div>
+            <b><p class="title">Criação de Charles Addams</p></b><br>
+            <h1>Família <br>Addams 1938</h1>
+            <b><p class="description">
+                A primeira aparição da <em>Família Addams</em>, criação <br>do cartunista Charles Addams, ocorreu em 1938, <br>em uma tirinha na revista <em>The New Yorker</em>. <br>Embora não tenha gerado grande alvoroço imediato, a impressão que causou nas pessoas foi <br>um misto de estranhamento e curiosidade.
+            </p></b>
+        </div>
+    </div>
+
+    <!-- Metade direita com fundo preto e imagens sobrepostas -->
+    <div class="right-section">
+        <img src="imagens/tirinha.jpg" alt="Tirinha Família Addams">
+        <img src="imagens/img2.png" alt="Família Addams Ilustração">
+    </div>
+    
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='teatro.html'">Voltar ao Início</button>
+        <button class="button" onclick="window.location.href='#'">Originalidade da Obra</button>
+    </div>
+</body>
+</html>

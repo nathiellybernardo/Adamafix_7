@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdamaFlix</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
+        }
+        .highlight {
+            position: relative;
+            width: 100%; 
+            height: 60vh; 
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            align-items: flex-start; 
+        }
+        .highlight video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+            z-index: 1; 
+            opacity: 110%;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(70, 68, 68, 0.7), rgba(0, 0, 0, 0.9));
+            z-index: 2; 
+        }
+        .navbar {
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            display: flex;
+            z-index: 3; 
+            padding: 10px; 
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px; 
+        }
+        .logo {
+            position: absolute; 
+            top: 15%; 
+            left: 20px; 
+            z-index: 3; 
+        }
+        .highlight h1,
+        .highlight p {
+            position: absolute; 
+            z-index: 4; 
+            color: white; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .highlight h1 {
+            font-size: 3em;
+            top: 45%; 
+            left: 20px; 
+            transform: translateY(-50%); 
+        }
+        .highlight p {
+            font-size: 1.2em;
+            top: 55%; 
+            left: 20px; 
+            transform: translateY(-50%); 
+        }
+        .buttons {
+            position: absolute;
+            z-index: 4; 
+            top: 70%; 
+            left: 37px; 
+            transform: translateY(-50%); 
+            display: flex; 
+            gap: 10px; 
+        }
+        .buttons a,
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #e50914;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s; 
+        }
+        .buttons a:hover,
+        .buttons button:hover {
+            transform: scale(1.1); 
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 5px;
+            width: 100%; 
+            margin-top: -50px; 
+            margin-left: 2%;
+        }
+        .container2 {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 5px;
+            width: 100%; 
+            margin-top: -200px; 
+            margin-left: 3%;
+        }
+        .container img, .container2 img {
+            height: 500px; 
+            transition: transform 0.3s; 
+        }
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); 
+        }
+        .definicao {
+            margin-top: 7%;
+            margin-left: 5%;
+            margin-bottom: -5%;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
+
+    <div class="highlight">
+        <video autoplay muted loop>
+            <source src="videos/videorapunzel.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+        <div class="overlay"></div> 
+
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200PX;">
+        </div>
+
+        <div class="navbar">
+            <div>
+                <a href="login.html">Início</a>
+                <a href="#">Séries</a>
+                <a href="#">Filmes</a>
+                <a href="#">Novidades</a>
+                <a href="#">Minha Lista</a>
+            </div>
+        </div>
+
+        <h1>No Ritmo do Cinema</h1>
+        <p>Uma breve sinopse sobre o conteúdo em destaque.</p>
+
+        <div class="buttons">
+            <a href="https://www.youtube.com/watch?v=ZNOEUYtC63E" class="botao">Assistir Agora</a>
+            <button>Adicionar à Minha Lista</button>
+        </div>
+    </div>
+
+    <div class="definicao">
+        <h2>Recomendados</h2>
+    </div>
+
+    <div class="container">
+        <div>
+            <a href="filme1.html" onclick="playSound()"><img src="imagens/filme1.png" alt="Filme 1"></a>
+        </div>
+        <a href="filme2.html" onclick="playSound()"><img src="imagens/filme2.png" alt="Filme 2"></a>
+        <a href="filme3.html" onclick="playSound()"><img src="imagens/filme3.png" alt="Filme 3"></a>
+        <a href="filme4.html" onclick="playSound()"><img src="imagens/filme4.png" alt="Filme 4"></a> 
+    </div>
+   
+    <div class="container2">
+        <a href="filme5.html" onclick="playSound()"><img src="imagens/filme5.png" alt="Filme 5"></a>
+        <a href="filme6.html" onclick="playSound()"><img src="imagens/filme6.png" alt="Filme 6"></a>
+        <a href="filme7.html" onclick="playSound()"><img src="imagens/filme7.png" alt="Filme 7"></a>
+        <a href="filme8.html" onclick="playSound()"><img src="imagens/filme8.png" alt="Filme 8"></a>
+    </div>
+
+    <script>
+        function playSound() {
+            var sound = document.getElementById('tudum.m4a');
+            sound.play();
+        }
+    </script>
+
+</body>
+</html>

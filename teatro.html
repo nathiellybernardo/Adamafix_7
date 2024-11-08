@@ -22,6 +22,7 @@
             justify-content: flex-start; 
             align-items: flex-start; 
         }
+
         .highlight video {
             position: absolute;
             top: 0;
@@ -31,6 +32,7 @@
             object-fit: cover; 
             z-index: 1; 
         }
+
         .overlay {
             position: absolute;
             top: 0;
@@ -40,6 +42,7 @@
             background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
             z-index: 2; 
         }
+
         .degrade {
             position: absolute;
             bottom: 0;
@@ -49,13 +52,15 @@
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
             z-index: 2; 
         }
+
         .logo {
             position: absolute; 
             top: 15%; 
             left: 20px; 
             z-index: 3; 
-            margin-left:-10px;
+            margin-left: -10px;
         }
+
         .highlight img {
             position: absolute;
             top: 45%; 
@@ -64,6 +69,7 @@
             transform: translateY(-50%);
             z-index: 4;
         }
+
         .rating, .year {
             position: absolute;
             left: 20px;
@@ -73,12 +79,15 @@
             margin-left: 20px;
             margin-bottom: 15px;
         }
+
         .rating {
             top: 60%; 
         }
+
         .year {
             top: 70%; 
         }
+
         .buttons {
             position: absolute;
             z-index: 4; 
@@ -88,6 +97,7 @@
             display: flex; 
             gap: 10px; 
         }
+
         .buttons a,
         .buttons button {
             padding: 10px 20px;
@@ -99,8 +109,8 @@
             border-radius: 5px;
             text-decoration: none;
             transition: transform 0.3s; 
-            margin-top:80px;
         }
+
         .buttons a:hover,
         .buttons button:hover {
             transform: scale(1.1); 
@@ -155,6 +165,7 @@
             z-index: 3; 
             padding: 10px; 
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
@@ -166,6 +177,7 @@
             margin-left: 5%;
             margin-bottom: -5%;
         }
+
         .film {
             text-align: center; /* Centraliza o texto abaixo da imagem */
         }
@@ -176,6 +188,7 @@
     <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
 
     <div class="highlight">
+        <!-- Adicionando autoplay, muted e loop para garantir que o vídeo seja reproduzido automaticamente no celular -->
         <video autoplay muted loop>
             <source src="videos/familia.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.

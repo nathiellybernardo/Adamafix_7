@@ -29,12 +29,10 @@
 
         .container {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
+            justify-content: center; /* Centraliza os itens */
             gap: 20px;
-            overflow-x: auto; /* Permite rolagem horizontal */
-            -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
-            padding: 10px 0; /* Espaço interno para a rolagem */
-            width: 100%; /* Garante que a largura da container ocupe toda a tela */
+            width: 100%; /* Ocupa toda a largura da tela */
             max-width: 100%;
         }
 
@@ -42,9 +40,8 @@
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s;
-            flex-shrink: 0; /* Evita que os itens encolham */
-            max-width: 200px; /* Limita a largura máxima dos itens */
-            width: 150px; /* Largura fixa de 150px para cada item */
+            flex: 1 1 200px; /* A largura mínima é de 200px, mas pode se expandir */
+            max-width: 200px; /* Limita a largura máxima de cada item */
             box-sizing: border-box;
         }
 
@@ -53,7 +50,7 @@
         }
 
         img {
-            width: 100%; /* Ajusta as imagens para a largura do container */
+            width: 100%; /* Ajusta as imagens para ocupar toda a largura do container */
             height: auto; /* Mantém a proporção das imagens */
             border-radius: 8px; /* Bordas arredondadas nas imagens */
         }
@@ -91,16 +88,13 @@
                 font-size: 1.5em;
             }
 
-            .container {
-                gap: 15px;
-            }
-
             .logo img {
                 max-width: 150px; /* Ajusta a logo para telas menores */
             }
 
             .perfil {
-                width: 120px; /* Ajusta a largura dos perfis para telas menores */
+                width: 45%; /* Ajusta a largura dos perfis para telas menores */
+                max-width: 150px; /* Limita a largura para que se ajustem bem */
             }
         }
 
@@ -115,7 +109,8 @@
             }
 
             .perfil {
-                width: 100px; /* Ajusta a largura dos perfis para telas muito pequenas */
+                width: 45%; /* Ajusta a largura dos perfis para telas muito pequenas */
+                max-width: 130px; /* Limita ainda mais a largura dos perfis */
             }
 
             .container {
@@ -153,7 +148,6 @@
                 <p>Todas as opções!</p>
             </a>
         </div>
-        <!-- Adicione mais perfis se necessário -->
     </div>
 </body>
 </html>

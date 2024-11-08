@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <title>AdamaFix</title>
@@ -29,13 +29,12 @@
 
         .container {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap; /* Permite que os itens se quebrem em novas linhas */
             gap: 20px;
-            overflow-x: auto; /* Permite rolagem horizontal */
-            -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
             padding: 10px 0; /* Espaço interno para a rolagem */
             width: 100%; /* Garante que a largura da container ocupe toda a tela */
             max-width: 100%;
+            justify-content: center; /* Centraliza os itens */
         }
 
         .perfil {
@@ -43,9 +42,9 @@
             cursor: pointer;
             transition: transform 0.3s;
             flex-shrink: 0; /* Evita que os itens encolham */
-            max-width: 200px; /* Limita a largura máxima dos itens */
             width: 150px; /* Largura fixa de 150px para cada item */
             box-sizing: border-box;
+            margin-bottom: 20px; /* Espaço entre as linhas */
         }
 
         .perfil:hover {
@@ -141,6 +140,7 @@
                 <p>Turma A</p>
             </a>
         </div>
+        <!-- Duas primeiras imagens em uma linha -->
         <div class="perfil">
             <a href="entrada.html" target="_blank">
                 <img src="imagens/perfil3.jpg" alt="Imagem Usuário 3">
@@ -153,7 +153,19 @@
                 <p>Todas as opções!</p>
             </a>
         </div>
-        <!-- Adicione mais perfis se necessário -->
+        <!-- Duas últimas imagens em outra linha -->
+        <div class="perfil">
+            <a href="entrada.html" target="_blank">
+                <img src="imagens/perfil5.jpg" alt="Imagem Usuário 5">
+                <p>Outra Turma</p>
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="entrada.html" target="_blank">
+                <img src="imagens/perfil6.jpg" alt="Imagem Usuário 6">
+                <p>Mais Opções</p>
+            </a>
+        </div>
     </div>
 </body>
 </html>

@@ -53,6 +53,21 @@
             z-index: 2; 
         }
 
+        .navbar {
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            display: flex;
+            z-index: 3; 
+            padding: 10px; 
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px; 
+        }
+
         .logo {
             position: absolute; 
             top: 15%; 
@@ -65,7 +80,9 @@
             position: absolute;
             top: 45%; 
             left: 20px; 
-            width: 400px; 
+            width: 100%; /* Ajustando a largura para 100% */
+            max-width: 400px; /* Limite máximo para a largura da imagem */
+            object-fit: contain; /* Faz com que a imagem se ajuste mantendo a proporção */
             transform: translateY(-50%);
             z-index: 4;
         }
@@ -116,60 +133,38 @@
             transform: scale(1.1); 
         }
 
-        /* Flex com rolagem horizontal */
-        .container,
-        .container2 {
+        .container {
             display: flex;
-            gap: 20px; /* Espaço entre os itens */
-            overflow-x: auto; /* Permite rolagem horizontal */
+            gap: 20px; 
+            overflow-x: auto;
             padding: 5px;
-            width: 100%;
+            width: 100%; 
             margin-top: -100px; 
             margin-left: 30px; 
+            overflow: hidden;
         }
 
-        .container img, 
-        .container2 img {
-            height: 500px; 
-            max-width: 100%; /* Garante que as imagens não ultrapassem a largura da tela */
-            transition: transform 0.3s; 
-        }
-
-        .container img:hover, 
-        .container2 img:hover {
-            transform: scale(1.1); 
-        }
-
-        /* Centralização do título do filme */
-        .film-title {
-            text-align: center;
-            font-size: 1em;
-            margin-top: 5px;
-        }
-
-        /* Ajustes para o título das imagens */
-        .film-title1 { margin-left: 90px; }
-        .film-title2 { margin-left: 120px; }
-        .film-title3 { margin-left: 140px; }
-        .film-title4 { margin-left: 110px; }
-        .film-title5 { margin-left: 130px; }
-        .film-title6 { margin-left: 110px; }
-        .film-title7 { margin-left: 130px; }
-        .film-title8 { margin-left: 140px; }
-
-        .navbar {
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
+        .container2 {
             display: flex;
-            z-index: 3; 
-            padding: 10px; 
+            gap: 20px; 
+            padding: 5px;
+            width: 100%; 
+            margin-top: -200px; 
+            margin-left: 30px;
+            overflow: hidden;
         }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px; 
+        /* Ajuste para as imagens na galeria */
+        .container img, .container2 img {
+            width: 100%; /* Ajusta a largura para 100% da tela */
+            height: auto; /* Mantém a proporção */
+            max-width: 300px; /* Limite máximo da largura */
+            transition: transform 0.3s; 
+            object-fit: cover; /* Mantém a proporção da imagem */
+        }
+
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); 
         }
 
         .definicao {
@@ -179,16 +174,46 @@
         }
 
         .film {
-            text-align: center; /* Centraliza o texto abaixo da imagem */
+            text-align: center; 
+            margin-top: 100px;
         }
+
+        .film-title {
+            margin-top: -100px; 
+            font-size: 1em; 
+            margin-left: 90px;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries para melhorar a exibição em dispositivos móveis */
+        @media (max-width: 768px) {
+            .highlight img {
+                width: 90%; /* Imagem ocupará 90% da largura da tela no celular */
+                max-width: none; /* Não limita a largura */
+            }
+
+            .container img, .container2 img {
+                max-width: 90%; /* As imagens da galeria irão ocupar 90% da tela */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight img {
+                width: 85%; /* Ajuste para telas muito pequenas */
+            }
+
+            .container img, .container2 img {
+                max-width: 80%; /* Ajuste para telas muito pequenas */
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
+    <audio id="tudumSound" src="tudum.m4a"></audio>
 
     <div class="highlight">
-        <!-- Adicionando autoplay, muted e loop para garantir que o vídeo seja reproduzido automaticamente no celular -->
         <video autoplay muted loop>
             <source src="videos/familia.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
@@ -198,33 +223,21 @@
         <div class="degrade"></div>
 
         <div class="logo">
-            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200px;">
-        </div>
-
-        <div class="navbar">
-            <div>
-                <a href="index.html">Início</a>
-                <a href="#">Séries</a>
-                <a href="#">Filmes</a>
-                <a href="#">Novidades</a>
-                <a href="#">Minha Lista</a>
-            </div>
+            <img src="imagens/logo.png" alt="Logo AdamaFlix">
         </div>
 
         <!-- Substituindo o título por imagem da logo da Família Addams -->
         <img src="imagens/addams.png" alt="Família Addams Logo">
 
-        <!-- Classificação e tempo de duração -->
         <div class="rating">★ ★ ★ ★ ★</div>
         <div class="year">1964 | 1h 39m</div> 
-        
+
         <div class="buttons">
             <a href="videoprincipal.html" class="botao">Assistir Agora</a>
             <button>Adicionar à Minha Lista</button>
         </div>
     </div>
 
-    <!-- Seção de filmes com rolagem horizontal -->
     <div class="container">
         <div>
             <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>

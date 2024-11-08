@@ -10,6 +10,248 @@
             font-family: Arial, sans-serif;
             color: white;
             background-color: black;
+            overflow-x: hidden; /* Impede a rolagem horizontal na página */
+        }
+
+        /* Highlight e Vídeo de fundo */
+        .highlight {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .highlight video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay e Degradê */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
+            z-index: 2;
+        }
+
+        .degrade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+            z-index: 2;
+        }
+
+        /* Barra de navegação */
+        .navbar {
+            position: absolute;
+            top: 50px; /* Logo movida para cima */
+            right: 20px;
+            display: flex;
+            gap: 30px; /* Maior espaço entre os links */
+            z-index: 3;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 20px; /* Logo movida para cima */
+            left: 20px;
+            z-index: 3;
+        }
+
+        .logo img {
+            width: 180px; /* Tamanho reduzido da logo da Adamafix */
+        }
+
+        /* Imagem da Família Addams */
+        .highlight img {
+            position: absolute;
+            top: 45%;
+            left: 20px;
+            width: 300px; /* Tamanho reduzido da logo da Família Addams */
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+
+        /* Filmes e Layout de Exibição */
+        .container, .container2 {
+            display: flex;
+            flex-wrap: wrap; /* Faz com que os itens se ajustem na linha */
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+            padding: 10px;
+        }
+
+        .container div, .container2 div {
+            flex: 1 1 22%; /* Coloca 4 itens por linha (com espaço) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container img, .container2 img {
+            width: 100%; /* Ajusta a largura para não ultrapassar os limites da tela */
+            max-width: 180px; /* Limita a largura máxima das imagens */
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Títulos abaixo das imagens */
+        .film-title, .film-title1, .film-title2, .film-title3, .film-title4, .film-title6, .film-title7, .film-title8 {
+            margin-top: 10px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* Responsividade: Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .highlight img {
+                width: 200px; /* Tamanho reduzido no celular */
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                top: 10px;
+                right: 10px;
+            }
+
+            .container div, .container2 div {
+                flex: 1 1 45%; /* Menos largura para caber 2 por linha */
+            }
+
+            .container, .container2 {
+                justify-content: space-around;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight img {
+                width: 180px; /* Tamanho ainda menor no celular */
+            }
+
+            .container div, .container2 div {
+                flex: 1 1 90%; /* Cada item ocupa mais espaço na tela */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Vídeo de fundo -->
+    <div class="highlight">
+        <video autoplay muted loop>
+            <source src="videos/familia.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        <div class="overlay"></div>
+        <div class="degrade"></div>
+        
+        <!-- Logo da Adamafix -->
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo AdamaFix">
+        </div>
+
+        <!-- Barra de navegação -->
+        <div class="navbar">
+            <a href="index.html">Início</a>
+            <a href="#">Séries</a>
+            <a href="#">Filmes</a>
+        </div>
+
+        <!-- Logo da Família Addams -->
+        <img src="imagens/addams.png" alt="Família Addams Logo">
+
+        <!-- Classificação e ano -->
+        <div class="rating">★ ★ ★ ★ ★</div>
+        <div class="year">1964 | 1h 39m</div>
+
+        <!-- Botões -->
+        <div class="buttons">
+            <a href="videoprincipal.html" class="botao">Assistir Agora</a>
+            <button>Adicionar à Minha Lista</button>
+        </div>
+    </div>
+
+    <!-- Container de Filmes -->
+    <div class="container">
+        <div>
+            <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>
+            <div class="film-title">Família Addams 1938</div>
+        </div>
+        <div>
+            <a href="addams2.html"><img src="imagens/1964.png" alt="Filme 2"></a>
+            <div class="film-title">Família Addams 1964</div>
+        </div>
+        <div>
+            <a href="addams3.html"><img src="imagens/1977.png" alt="Filme 3"></a>
+            <div class="film-title">Família Addams 1977</div>
+        </div>
+        <div>
+            <a href="addams4.html"><img src="imagens/1991.png" alt="Filme 4"></a>
+            <div class="film-title">Família Addams 1991</div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div>
+            <a href="addams5.html"><img src="imagens/1993.png" alt="Filme 5"></a>
+            <div class="film-title">Família Addams 1993</div>
+        </div>
+        <div>
+            <a href="addams6.html"><img src="imagens/1998.png" alt="Filme 6"></a>
+            <div class="film-title">Família Addams 1998</div>
+        </div>
+        <div>
+            <a href="addams7.html"><img src="imagens/2019.png" alt="Filme 7"></a>
+            <div class="film-title">Família Addams 2019</div>
+        </div>
+        <div>
+            <a href="addams8.html"><img src="imagens/2023.png" alt="Filme 8"></a>
+            <div class="film-title">Família Addams 2023</div>
+        </div>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdamaFix</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
             overflow-x: hidden; /* Impede a rolagem horizontal */
         }
 

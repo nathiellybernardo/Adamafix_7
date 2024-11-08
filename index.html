@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <title>AdamaFix</title>
@@ -22,6 +22,7 @@
         }
 
         h1 {
+            margin-top: 20px; /* Ajusta a distância do título da parte superior */
             margin-bottom: 20px;
             text-align: center;
             font-size: 1.8em;
@@ -29,11 +30,10 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap; /* Permite que os itens se quebrem em novas linhas */
-            gap: 20px;
+            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
             justify-content: center; /* Centraliza os itens */
-            padding: 10px 0;
-            width: 100%; /* Garante que a largura da container ocupe toda a tela */
+            gap: 20px;
+            width: 100%; /* Ocupa toda a largura da tela */
             max-width: 100%;
         }
 
@@ -41,11 +41,9 @@
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s;
-            flex-shrink: 0; /* Evita que os itens encolham */
-            width: 45%; /* Ajusta a largura para caber duas imagens por linha */
+            flex: 1 1 200px; /* A largura mínima é de 200px, mas pode se expandir */
+            max-width: 200px; /* Limita a largura máxima de cada item */
             box-sizing: border-box;
-            margin-bottom: 20px; /* Espaçamento entre as linhas */
-            gap: 5px;
         }
 
         .perfil:hover {
@@ -53,27 +51,26 @@
         }
 
         img {
-            width: 100%; /* Ajusta as imagens para a largura do container */
-            height: auto; /* Mantém a proporção das imagens */
+            width: 100%; /* Ajusta as imagens para ocupar toda a largura do container */
+            height: auto; /* A altura será automática para manter a proporção da imagem */
+            object-fit: cover; /* Corta a imagem de maneira proporcional, sem distorcer */
             border-radius: 8px; /* Bordas arredondadas nas imagens */
         }
 
         .logo {
-            font-size: 2em;
+            font-size: 2.5em; /* Aumenta o tamanho da logo */
             font-weight: bold;
             color: #e50914;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 20px; /* Movido mais para cima */
+            left: 10px; /* Movedo para o canto esquerdo */
             z-index: 10;
         }
 
         .logo img {
             border: none;
-            width: 205px;
+            width: 230px; /* Diminuído um pouco o tamanho da logo */
             height: auto;
-            margin-top: -20%;
-            margin-left: 3px;
         }
         
         a {
@@ -85,6 +82,20 @@
             margin: 10px 0 0;
         }
 
+        /* Adiciona uma margem inferior aos itens da primeira linha */
+        .container .perfil:nth-child(-n+2) {
+            margin-bottom: 30px; /* Aumenta a margem inferior entre as duas linhas */
+        }
+
+        /* Margem personalizada entre a imagem 1 e a imagem 2, e entre a imagem 3 e a imagem 4 */
+        .container .perfil:nth-child(1) {
+            margin-right: 15px; /* Distância extra entre a imagem 1 e a imagem 2 */
+        }
+
+        .container .perfil:nth-child(3) {
+            margin-right: 15px; /* Distância extra entre a imagem 3 e a imagem 4 */
+        }
+
         /* Media Queries para telas menores */
         @media (max-width: 768px) {
             h1 {
@@ -92,11 +103,17 @@
             }
 
             .logo img {
-                max-width: 150px; /* Ajusta a logo para telas menores */
+                max-width: 200px; /* Ajusta a logo para telas menores */
             }
 
             .perfil {
-                width: 35%; /* Ajusta a largura dos perfis para telas menores (2 itens por linha) */
+                width: 45%; /* Ajusta a largura dos perfis para telas menores */
+                max-width: 150px; /* Limita a largura para que se ajustem bem */
+            }
+
+            .container .perfil:nth-child(1),
+            .container .perfil:nth-child(3) {
+                margin-right: 10px; /* Distância menor entre as imagens em telas menores */
             }
         }
 
@@ -107,11 +124,12 @@
             }
 
             .logo img {
-                max-width: 120px; /* Ajusta ainda mais a logo em telas muito pequenas */
+                max-width: 180px; /* Ajusta ainda mais a logo em telas muito pequenas */
             }
 
             .perfil {
-                width: 45%; /* Ajusta a largura dos perfis para telas muito pequenas (2 itens por linha) */
+                width: 45%; /* Ajusta a largura dos perfis para telas muito pequenas */
+                max-width: 130px; /* Limita ainda mais a largura dos perfis */
             }
 
             .container {
@@ -149,7 +167,6 @@
                 <p>Todas as opções!</p>
             </a>
         </div>
-        <!-- Adicione mais perfis se necessário -->
     </div>
 </body>
 </html>

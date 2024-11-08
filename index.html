@@ -1,172 +1,302 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>AdamaFix</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>AdamaFix</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #141414, #000000); /* Degradê do cinza escuro para preto */
-            color: white;
             margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+
+        .highlight {
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Ajusta a altura */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            position: relative;
-            padding: 0 15px; /* Adiciona padding nas laterais */
-            overflow-x: hidden; /* Impede rolagem horizontal no corpo da página */
+            justify-content: flex-start;
+            align-items: flex-start;
         }
 
-        h1 {
-            margin-top: 20px; /* Ajusta a distância do título da parte superior */
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.8em;
+        .highlight video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
-        .container {
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
+            z-index: 2;
+        }
+
+        .degrade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Degradê na parte inferior */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+            z-index: 2;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             display: flex;
-            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
-            justify-content: center; /* Centraliza os itens */
-            gap: 20px;
-            width: 100%; /* Ocupa toda a largura da tela */
-            max-width: 100%;
+            z-index: 3;
+            padding: 10px;
+            gap: 20px; /* Adiciona espaço entre os itens */
         }
 
-        .perfil {
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-            flex: 1 1 200px; /* A largura mínima é de 200px, mas pode se expandir */
-            max-width: 200px; /* Limita a largura máxima de cada item */
-            box-sizing: border-box;
-        }
-
-        .perfil:hover {
-            transform: scale(1.1);
-        }
-
-        img {
-            width: 100%; /* Ajusta as imagens para ocupar toda a largura do container */
-            height: auto; /* A altura será automática para manter a proporção da imagem */
-            object-fit: cover; /* Corta a imagem de maneira proporcional, sem distorcer */
-            border-radius: 8px; /* Bordas arredondadas nas imagens */
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em; /* Ajusta o tamanho da fonte */
         }
 
         .logo {
-            font-size: 2.5em; /* Aumenta o tamanho da logo */
-            font-weight: bold;
-            color: #e50914;
             position: absolute;
-            top: 1px; /* Movido mais para cima */
-            left: 1px; /* Movedo para o canto esquerdo */
-            z-index: 10;
+            top: 10%;
+            left: 10px;
+            z-index: 3;
         }
 
         .logo img {
+            width: 150px; /* Ajusta o tamanho da logo */
+        }
+
+        .highlight img {
+            position: absolute;
+            top: 45%;
+            left: 20px;
+            width: 400px;
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+
+        .rating, .year {
+            position: absolute;
+            left: 20px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            top: 60%;
+        }
+
+        .year {
+            top: 70%;
+        }
+
+        .buttons {
+            position: absolute;
+            z-index: 4;
+            top: 75%;
+            left: 37px;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .buttons a, .buttons button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #e50914;
             border: none;
-            width: 230px; /* Diminuído um pouco o tamanho da logo */
-            height: auto;
-        }
-        
-        a {
-            text-decoration: none; /* Remove o sublinhado dos links */
-        }
-
-        .perfil p {
             color: white;
-            margin: 10px 0 0;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s;
         }
 
-        /* Adiciona uma margem inferior aos itens da primeira linha */
-        .container .perfil:nth-child(-n+2) {
-            margin-bottom: 30px; /* Aumenta a margem inferior entre as duas linhas */
+        .buttons a:hover, .buttons button:hover {
+            transform: scale(1.1);
         }
 
-        /* Margem personalizada entre a imagem 1 e a imagem 2, e entre a imagem 3 e a imagem 4 */
-        .container .perfil:nth-child(1) {
-            margin-right: 15px; /* Distância extra entre a imagem 1 e a imagem 2 */
+        /* Ajustes para a visualização das imagens */
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
+            justify-content: center; /* Centraliza as imagens */
+            gap: 10px;
+            padding: 5px;
+            margin-top: -100px;
         }
 
-        .container .perfil:nth-child(3) {
-            margin-right: 15px; /* Distância extra entre a imagem 3 e a imagem 4 */
+        .container2 {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
+            justify-content: center; /* Centraliza as imagens */
+            gap: 10px;
+            padding: 5px;
+            margin-top: -50px;
         }
 
-        /* Media Queries para telas menores */
+        .container img, .container2 img {
+            height: auto;
+            max-width: 100%;
+            width: 150px; /* Ajusta o tamanho das imagens */
+            transition: transform 0.3s;
+            border-radius: 5px;
+        }
+
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1);
+        }
+
+        .film-title {
+            text-align: center;
+            font-size: 1em;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Ajustes específicos de responsividade */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5em;
+            .highlight img {
+                width: 80%; /* Ajusta o tamanho da imagem principal */
             }
 
             .logo img {
-                max-width: 200px; /* Ajusta a logo para telas menores */
+                width: 130px; /* Ajusta o tamanho da logo para dispositivos menores */
             }
 
-            .perfil {
-                width: 45%; /* Ajusta a largura dos perfis para telas menores */
-                max-width: 150px; /* Limita a largura para que se ajustem bem */
+            .container img, .container2 img {
+                width: 100px; /* Ajusta o tamanho das imagens nos containers */
             }
 
-            .container .perfil:nth-child(1),
-            .container .perfil:nth-child(3) {
-                margin-right: 10px; /* Distância menor entre as imagens em telas menores */
+            .rating, .year, .buttons {
+                font-size: 1em; /* Ajuste de texto e botões */
             }
         }
 
-        /* Media Queries para telas muito pequenas */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.2em;
+            .highlight img {
+                width: 70%; /* Ajusta ainda mais o tamanho da imagem principal */
             }
 
             .logo img {
-                max-width: 180px; /* Ajusta ainda mais a logo em telas muito pequenas */
+                width: 120px; /* Ajuste adicional da logo */
             }
 
-            .perfil {
-                width: 45%; /* Ajusta a largura dos perfis para telas muito pequenas */
-                max-width: 130px; /* Limita ainda mais a largura dos perfis */
+            .container img, .container2 img {
+                width: 90px; /* Ajusta ainda mais o tamanho das imagens */
             }
 
-            .container {
-                gap: 10px; /* Menor espaçamento entre os itens */
+            .rating, .year, .buttons {
+                font-size: 0.9em; /* Ajuste de tamanho para telas menores */
+            }
+
+            .buttons a, .buttons button {
+                padding: 8px 16px; /* Ajuste no tamanho dos botões */
             }
         }
+
     </style>
 </head>
 <body>
-    <div class="logo"><img src="imagens/logo.png" alt="Logo"></div>
-    
-    <h1>Quem você veio assistir?</h1>
-    <div class="container">
-        <div class="perfil">
-            <a href="teatro.html" target="_blank">
-                <img src="imagens/perfil1.png" alt="Imagem Usuário 1"> 
-                <p>Teatro</p>
-            </a>
+
+    <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
+
+    <div class="highlight">
+        <video autoplay muted loop>
+            <source src="videos/familia.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+        <div class="overlay"></div>
+        <div class="degrade"></div>
+
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo AdamaFlix">
         </div>
-        <div class="perfil">
-            <a href="entrada.html" target="_blank">
-                <img src="imagens/perfil2.jpg" alt="Imagem Usuário 2">
-                <p>Turma A</p>
-            </a>
+
+        <div class="navbar">
+            <div>
+                <a href="index.html">Início</a>
+                <a href="#">Séries</a>
+                <a href="#">Filmes</a>
+            </div>
         </div>
-        <div class="perfil">
-            <a href="entrada.html" target="_blank">
-                <img src="imagens/perfil3.jpg" alt="Imagem Usuário 3">
-                <p>Turma B</p>
-            </a>
-        </div>
-        <div class="perfil">
-            <a href="entrada.html" target="_blank">
-                <img src="imagens/perfil4.jpg" alt="Imagem Usuário 4">
-                <p>Todas as opções!</p>
-            </a>
+
+        <!-- Substituindo o título por imagem da logo da Família Addams -->
+        <img src="imagens/addams.png" alt="Família Addams Logo">
+
+        <!-- Classificação e tempo de duração -->
+        <div class="rating">★ ★ ★ ★ ★</div>
+        <div class="year">1964 | 1h 39m</div>
+        
+        <div class="buttons">
+            <a href="videoprincipal.html" class="botao">Assistir Agora</a>
+            <button>Adicionar à Minha Lista</button>
         </div>
     </div>
+
+    <div class="container">
+        <div>
+            <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>
+            <div class="film-title">Família Addams 1938</div>
+        </div>
+        <div>
+            <a href="addams2.html"><img src="imagens/1964.png" alt="Filme 2"></a>
+            <div class="film-title">Família Addams 1964</div>
+        </div>
+        <div>
+            <a href="addams3.html"><img src="imagens/1977.png" alt="Filme 3"></a>
+            <div class="film-title">Família Addams 1977</div>
+        </div>
+        <div>
+            <a href="addams4.html"><img src="imagens/1991.png" alt="Filme 4"></a>
+            <div class="film-title">Família Addams 1991</div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="film">
+            <a href="addams5.html"><img src="imagens/1993.png" alt="Filme 5"></a>
+            <div class="film-title">Família Addams 1993</div>
+        </div>
+        <div class="film">
+            <a href="addams6.html"><img src="imagens/1998.png" alt="Filme 6"></a>
+            <div class="film-title">Família Addams 1998</div>
+        </div>
+        <div class="film">
+            <a href="addams7.html"><img src="imagens/2019.png" alt="Filme 7"></a>
+            <div class="film-title">Família Addams 2019</div>
+        </div>
+        <div class="film">
+            <a href="addams8.html"><img src="imagens/2023.png" alt="Filme 8"></a>
+            <div class="film-title">Família Addams 2023</div>
+        </div>
+    </div>
+
+    <script>
+        function playSound() {
+            var sound = document.getElementById('tudumSound');
+            sound.play();
+        }
+    </script>
+
 </body>
 </html>

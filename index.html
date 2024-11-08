@@ -17,26 +17,41 @@
             justify-content: center;
             height: 100vh;
             position: relative;
+            padding: 0 15px; /* Adicionando padding nas laterais para evitar que o conteúdo fique colado na borda */
         }
+        
         h1 {
             margin-bottom: 20px;
+            text-align: center;
         }
+
         .container {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
+            max-width: 100%;
+            width: 100%;
         }
+
         .perfil {
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s;
+            flex: 1 1 200px; /* Flexível para crescer e ocupar o espaço necessário */
+            max-width: 200px; /* Limita a largura máxima de cada perfil */
         }
+
         .perfil:hover {
             transform: scale(1.1);
         }
+
         img {
             width: 120px;
             height: 120px;
+            border-radius: 8px; /* Adicionando bordas arredondadas para as imagens */
         }
+
         .logo {
             font-size: 2em;
             font-weight: bold;
@@ -45,20 +60,64 @@
             top: 10px;
             left: 10px;
         }
+
         .logo img {
             border: none;
-            width:205px;
-            height:auto;
+            width: 205px;
+            height: auto;
             margin-top: -20%;
             margin-left: 3px;
         }
-      
+        
         a {
             text-decoration: none; /* Remove o sublinhado dos links */
         }
+
         .perfil p {
-            color: white; /* Cor do texto */
-            margin: 0; /* Remove a margem padrão */
+            color: white;
+            margin: 10px 0 0; /* Adiciona um espaçamento superior entre a imagem e o texto */
+        }
+
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                gap: 20px;
+                flex-direction: column; /* Alinha os perfis verticalmente em telas pequenas */
+                align-items: center;
+            }
+
+            .logo img {
+                max-width: 150px; /* Ajusta a logo para telas menores */
+            }
+
+            .perfil {
+                width: 80%; /* O perfil ocupa 80% da largura da tela */
+                max-width: 150px;
+            }
+        }
+
+        /* Media Queries para telas muito pequenas */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .logo img {
+                max-width: 120px; /* Ajusta ainda mais a logo em telas muito pequenas */
+            }
+
+            .perfil {
+                width: 90%; /* O perfil ocupa quase toda a largura da tela */
+                max-width: 130px;
+            }
+
+            .container {
+                gap: 15px; /* Menor espaçamento entre os itens */
+            }
         }
     </style>
 </head>

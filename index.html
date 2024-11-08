@@ -17,10 +17,10 @@
             justify-content: center;
             min-height: 100vh;
             position: relative;
-            padding: 0 15px; /* Adicionando padding nas laterais para evitar que o conteúdo fique colado na borda */
-            overflow-x: hidden; /* Impede rolagem horizontal */
+            padding: 0 15px; /* Adiciona padding nas laterais */
+            overflow-x: hidden; /* Impede rolagem horizontal no corpo da página */
         }
-        
+
         h1 {
             margin-bottom: 20px;
             text-align: center;
@@ -29,21 +29,23 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
             gap: 20px;
-            width: 100%;
+            overflow-x: auto; /* Permite rolagem horizontal */
+            -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no iOS */
+            padding: 10px 0; /* Espaço interno para a rolagem */
+            width: 100%; /* Garante que a largura da container ocupe toda a tela */
             max-width: 100%;
-            padding: 10px; /* Adiciona um pequeno espaço interno */
         }
 
         .perfil {
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s;
-            flex: 1 1 200px; /* Cada item ocupa ao menos 200px, mas pode se expandir */
+            flex-shrink: 0; /* Evita que os itens encolham */
             max-width: 200px; /* Limita a largura máxima dos itens */
-            box-sizing: border-box; /* Garante que padding e margin não quebrem o layout */
+            width: 150px; /* Largura fixa de 150px para cada item */
+            box-sizing: border-box;
         }
 
         .perfil:hover {
@@ -51,9 +53,7 @@
         }
 
         img {
-            width: 120px; /* Ajusta o tamanho das imagens para que não fiquem muito grandes */
-            height: 120px;
-            max-width: 100%; /* Garante que as imagens não ultrapassem o tamanho do container */
+            width: 100%; /* Ajusta as imagens para a largura do container */
             height: auto; /* Mantém a proporção das imagens */
             border-radius: 8px; /* Bordas arredondadas nas imagens */
         }
@@ -93,8 +93,6 @@
 
             .container {
                 gap: 15px;
-                flex-direction: column; /* Empilha os itens verticalmente em telas pequenas */
-                align-items: center;
             }
 
             .logo img {
@@ -102,8 +100,7 @@
             }
 
             .perfil {
-                width: 80%; /* O perfil ocupa 80% da largura da tela */
-                max-width: 180px;
+                width: 120px; /* Ajusta a largura dos perfis para telas menores */
             }
         }
 
@@ -118,8 +115,7 @@
             }
 
             .perfil {
-                width: 90%; /* O perfil ocupa quase toda a largura da tela */
-                max-width: 140px;
+                width: 100px; /* Ajusta a largura dos perfis para telas muito pequenas */
             }
 
             .container {
@@ -157,6 +153,7 @@
                 <p>Todas as opções!</p>
             </a>
         </div>
+        <!-- Adicione mais perfis se necessário -->
     </div>
 </body>
 </html>

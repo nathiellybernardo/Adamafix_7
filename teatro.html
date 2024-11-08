@@ -13,22 +13,22 @@
         }
         .highlight {
             position: relative;
-            width: 100%; 
-            height: 80vh; 
+            width: 100%;
+            height: 80vh;
             overflow: hidden;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-start; 
-            align-items: flex-start; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
         .highlight video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; 
-            object-fit: cover; 
-            z-index: 1; 
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
         .overlay {
             position: absolute;
@@ -37,44 +37,43 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
-            z-index: 2; 
+            z-index: 2;
         }
         .degrade {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 30%; /* Altura do degrade */
+            height: 30%;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
-            z-index: 2; 
-}
+            z-index: 2;
+        }
 
-        
         .navbar {
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
+            position: absolute;
+            top: 20px;
+            right: 20px;
             display: flex;
-            z-index: 3; 
-            padding: 10px; 
+            z-index: 3;
+            padding: 10px;
         }
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 10px; 
+            margin: 0 10px;
         }
         .logo {
-            position: absolute; 
-            top: 10%; 
-            left: 2px; 
-            z-index: 3; 
-            margin-left:-10px;
+            position: absolute;
+            top: 10%;
+            left: 2px;
+            z-index: 3;
+            margin-left: -10px;
         }
         .highlight img {
             position: absolute;
-            top: 45%; 
-            left: 20px; 
-            width: 400px; 
+            top: 45%;
+            left: 20px;
+            width: 400px;
             transform: translateY(-50%);
             z-index: 4;
         }
@@ -88,19 +87,19 @@
             margin-bottom: 15px;
         }
         .rating {
-            top: 60%; 
+            top: 60%;
         }
         .year {
-            top: 70%; 
+            top: 70%;
         }
         .buttons {
             position: absolute;
-            z-index: 4; 
-            top: 75%; 
-            left: 37px; 
-            transform: translateY(-50%); 
-            display: flex; 
-            gap: 10px; 
+            z-index: 4;
+            top: 75%;
+            left: 37px;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
         }
         .buttons a,
         .buttons button {
@@ -112,110 +111,174 @@
             cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
-            transition: transform 0.3s; 
-            margin-top:80px;
+            transition: transform 0.3s;
         }
         .buttons a:hover,
         .buttons button:hover {
-            transform: scale(1.1); 
+            transform: scale(1.1);
+        }
+
+        /* Containers dos filmes */
+        .container,
+        .container2 {
+            display: flex;
+            gap: 20px; /* Reduz o espaço entre os itens, se necessário */
+            overflow-x: auto; /* Permite rolagem horizontal se necessário */
+            padding: 5px;
+            width: 100%;
+            margin-top: 20px;
+            margin-left: 30px;
         }
 
         .container {
-    display: flex;
-    gap: 20px; /* Reduza o espaço entre os itens, se necessário */
-    overflow-x: auto; /* Permite rolagem horizontal se necessário */
-    padding: 5px;
-    width: 100%; 
-    margin-top: -100px; 
-    margin-left: 30px; 
-    overflow: hidden;
-}
-
-.container2 {
-    display: flex;
-    gap: 20px; /* Reduza o espaço entre os itens, se necessário */
-    padding: 5px;
-    width: 100%; 
-    margin-top: -200px; 
-    margin-left: 30px;
-    overflow: hidden;
-}
-
-.container img, .container2 img {
-    height: 500px; 
-    max-width: 100%; /* Garante que as imagens não excedam a largura da tela */
-    transition: transform 0.3s; 
-    overflow: hidden;
-}
-
-        .container img:hover, .container2 img:hover {
-            transform: scale(1.1); 
+            margin-top: 20px;
         }
-        .definicao {
-            margin-top: 7%;
-            margin-left: 5%;
-            margin-bottom: -5%;
+
+        .container2 {
+            margin-top: 40px;
         }
+
+        .container img,
+        .container2 img {
+            height: 300px; /* Ajuste a altura para manter as proporções sem achatamento */
+            width: auto; /* Deixa a largura automática para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* Garante que a imagem cubra o espaço disponível sem distorcer */
+        }
+
+        /* Efeito de hover nas imagens */
+        .container img:hover,
+        .container2 img:hover {
+            transform: scale(1.1);
+        }
+
         .film {
-            text-align: center; /* Centraliza o texto abaixo da imagem */
-            margin-top:100px;
-        }
-        .film-title {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:90px;
-            margin-bottom:20px;
-        }
-        .film-title4 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title1 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:100px;
-            margin-bottom:20px;
+            text-align: center;
+            margin-top: 20px; /* Adiciona um espaço entre as imagens e o título */
         }
 
-        .film-title2 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:120px;
-            margin-bottom:20px;
+        .film-title {
+            font-size: 1.2em; /* Tamanho da fonte do título */
+            margin-top: 10px;
         }
-        .film-title3 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
-        }
-        .film-title6 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title7 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:130px;
-            margin-bottom:20px;
-        }
+
+        /* Para os títulos específicos de cada filme */
+        .film-title1,
+        .film-title2,
+        .film-title3,
+        .film-title4,
+        .film-title5,
+        .film-title6,
+        .film-title7,
         .film-title8 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
+            margin-top: 10px;
+            font-size: 1em;
+            text-align: center;
         }
-         .addams {
+
+        /* Responsividade */
+        @media screen and (max-width: 768px) {
+            .highlight {
+                height: 60vh;
+            }
+
+            .highlight img {
+                width: 250px;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+            }
+
+            .navbar {
+                flex-direction: column;
+                top: 10px;
+                right: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .logo {
+                top: 10%;
+                left: 10px;
+                width: 150px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                top: 80%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            .rating, .year {
+                font-size: 1em;
+                top: 50%;
+            }
+
+            .container,
+            .container2 {
+                flex-direction: column;
+                margin-top: 0;
+                margin-left: 0;
+                padding: 0;
+            }
+
+            .container img,
+            .container2 img {
+                height: auto;
+                width: 100%;
+            }
+
+            .film-title {
+                margin-left: 0;
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                top: 5%;
+                left: 10px;
+                width: 120px;
+            }
+
+            .navbar a {
+                font-size: 0.9em;
+            }
+
+            .highlight {
+                height: 50vh;
+            }
+
+            .buttons a,
+            .buttons button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+
+            .highlight img {
+                width: 200px;
+            }
+
+            .rating, .year {
+                font-size: 0.9em;
+                margin-top: 5px;
+            }
+
+            .film-title {
+                font-size: 0.8em;
+            }
+        }
+
+        .addams {
             position: absolute; 
             top: 50%; 
             left: 2px; 
             z-index: 3; 
-            margin-left:-10px;
-            height: auto;  /* Ajuste a altura conforme necessário */
+            margin-left: -10px;
+            height: auto; 
             width: 20px;
         }
     </style>
@@ -262,49 +325,40 @@
     <div class="container">
         <div>
             <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>
-            <div class="film-title1">Família Addams 1938</div>
+            <div class="film-title">Família Addams (1991)</div>
         </div>
         <div>
-            <a href="addams2.html"><img src="imagens/1964.png" alt="Filme 2"></a>
-            <div class="film-title2">Família Addams 1964</div>
+            <a href="addams2.html"><img src="imagens/familia2.png" alt="Filme 2"></a>
+            <div class="film-title">Família Addams (1993)</div>
         </div>
         <div>
-            <a href="addams3.html"><img src="imagens/1977.png" alt="Filme 3"></a>
-            <div class="film-title3">Família Addams 1977</div>
+            <a href="addams3.html"><img src="imagens/familia3.png" alt="Filme 3"></a>
+            <div class="film-title">A Família Addams 2 (2021)</div>
         </div>
         <div>
-            <a href="addams4.html"><img src="imagens/1991.png" alt="Filme 4"></a>
-            <div class="film-title4">Família Addams 1991</div>
+            <a href="addams4.html"><img src="imagens/familia4.png" alt="Filme 4"></a>
+            <div class="film-title">A Família Addams (2019)</div>
         </div>
     </div>
 
     <div class="container2">
-        <div class="film">
-            <a href="addams5.html"><img src="imagens/1993.png" alt="Filme 5"></a>
-            <div class="film-title">Família Addams 1993</div>
+        <div>
+            <a href="filme1.html"><img src="imagens/filme1.jpg" alt="Filme 1"></a>
+            <div class="film-title">Filme 1</div>
         </div>
-        <div class="film">
-            <a href="addams6.html"><img src="imagens/1998.png" alt="Filme 6"></a>
-            <div class="film-title6">Família Addams 1998</div>
+        <div>
+            <a href="filme2.html"><img src="imagens/filme2.jpg" alt="Filme 2"></a>
+            <div class="film-title">Filme 2</div>
         </div>
-        <div class="film">
-            <a href="addams7.html"><img src="imagens/2019.png" alt="Filme 7"></a>
-            <div class="film-title7">Família Addams 2019</div>
+        <div>
+            <a href="filme3.html"><img src="imagens/filme3.jpg" alt="Filme 3"></a>
+            <div class="film-title">Filme 3</div>
         </div>
-        <div class="film">
-            <a href="addams8.html"><img src="imagens/2023.png" alt="Filme 8"></a>
-            <div class="film-title8">Família Addams 2023</div>
+        <div>
+            <a href="filme4.html"><img src="imagens/filme4.jpg" alt="Filme 4"></a>
+            <div class="film-title">Filme 4</div>
         </div>
     </div>
-
-
-
-    <script>
-        function playSound() {
-            var sound = document.getElementById('tudumSound');
-            sound.play();
-        }
-    </script>
 
 </body>
 </html>

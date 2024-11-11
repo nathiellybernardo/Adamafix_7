@@ -117,51 +117,40 @@
             transform: scale(1.1); 
         }
 
-        /* Ajuste para a rolagem horizontal dos containers de filmes */
-       /* Containers dos filmes */
-/* Containers dos filmes */
-.container {
-    display: flex;
-    gap: 20px; /* Controle do espaço entre as imagens */
-    overflow-x: auto; /* Permite rolagem horizontal */
-    overflow-y: hidden; /* Impede rolagem vertical */
-    padding: 5px;
-    width: 100%; 
-    margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-    justify-content: flex-start; /* Alinha os itens no início do container */
-    position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-    z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-}
+        /* Containers dos filmes */
+        .container, .container2 {
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
+            cursor: grab; /* Muda o cursor para 'mãozinha' ao passar sobre o container */
+        }
 
-/* Ajuste para as imagens dos filmes */
-.container img, .container2 img {
-    height: auto; /* Ajusta a altura da imagem proporcionalmente */
-    max-height: 350px; /* Limita a altura máxima das imagens */
-    width: auto; /* A largura é ajustada automaticamente para manter a proporção */
-    transition: transform 0.3s;
-    object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
-    display: block; /* Evita que a imagem seja tratada como inline */
-}
+        /* Ajuste para as imagens dos filmes */
+        .container img, .container2 img {
+            height: auto; /* Ajusta a altura da imagem proporcionalmente */
+            max-height: 350px; /* Limita a altura máxima das imagens */
+            width: auto; /* A largura é ajustada automaticamente para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
+            display: block; /* Evita que a imagem seja tratada como inline */
+        }
 
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
+        /* Efeito de zoom ao passar o mouse nas imagens */
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); /* Efeito de zoom */
+        }
 
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
-
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
-
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
+        /* Impede a rolagem vertical da página */
+        body {
+            overflow: hidden;
+        }
 
         .film {
             margin-top:-90px;
@@ -175,50 +164,6 @@
             margin-left:80px;
             margin-bottom:20px;
         }
-        .film-title4 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title1 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:100px;
-            margin-bottom:20px;
-        }
-
-        .film-title2 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:120px;
-            margin-bottom:20px;
-        }
-        .film-title3 {
-            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
-        }
-        .film-title6 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title7 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:130px;
-            margin-bottom:20px;
-        }
-        .film-title8 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
-        }
-
         .addams {
             position: absolute; 
             top: 50%; 
@@ -228,20 +173,6 @@
             height: auto;
             width: 20px;
         }
-
-         .container2{
-        top:40px;
-        display: flex;
-        gap: 20px; /* Controle do espaço entre as imagens */
-        overflow-x: auto; /* Permite rolagem horizontal */
-        overflow-y: hidden; /* Impede rolagem vertical */
-        padding: 5px;
-        width: 100%; 
-        margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-        justify-content: flex-start; /* Alinha os itens no início do container */
-        position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-        z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-         }
     </style>
 </head>
 <body>
@@ -319,9 +250,17 @@
             var sound = document.getElementById('tudumSound');
             sound.play();
         }
+
+        // Impede a rolagem vertical da página ao interagir com o container
+        document.querySelectorAll('.container, .container2').forEach(container => {
+            container.addEventListener('wheel', function(e) {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    container.scrollLeft += e.deltaY;
+                }
+            });
+        });
     </script>
 
 </body>
 </html>
-
-  

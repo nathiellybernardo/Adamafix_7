@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página com Vídeo em Tela Cheia</title>
     <style>
-        /* Reseta margens e padding da página */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         /* Configura o vídeo para ocupar toda a tela */
         #fullscreen-video {
             position: fixed; /* Fixa o vídeo na tela */
@@ -23,7 +16,8 @@
             z-index: -1; /* Coloca o vídeo atrás de outros conteúdos */
         }
     </style>
-</head>
+    </head>
+    
 <body>
     <!-- Vídeo que ocupa a tela inteira -->
     <video autoplay muted loop id="fullscreen-video">

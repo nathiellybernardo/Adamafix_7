@@ -44,46 +44,46 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 30%; /* Altura do degrade */
+            height: 15vh; /* Altura do degrade agora é relativa */
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
             z-index: 2; 
         }
         .navbar {
             position: absolute; 
-            top: 20px; 
-            right: 20px; 
+            top: 2vh; /* Usando vh para ajustar a posição em relação à altura da tela */
+            right: 2vw; /* Usando vw para ajuste relativo à largura da tela */
             display: flex;
             z-index: 3; 
-            padding: 10px; 
+            padding: 1rem; /* Usando rem para o padding */
         }
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 10px; 
+            margin: 0 2vw; /* Usando vw para espaçamento entre os links */
         }
         .logo {
             position: absolute; 
-            top: 10%; 
-            left: 2px; 
+            top: 5vh; /* Ajuste usando vh para a posição */
+            left: 2vw; 
             z-index: 3; 
-            margin-left:-10px;
+            margin-left: -1rem;
         }
         .highlight img {
             position: absolute;
             top: 45%; 
-            left: 20px; 
-            width: 400px; 
+            left: 5vw; /* Ajuste usando vw */
+            width: 30vw; /* Tamanho relativo da imagem */
             transform: translateY(-50%);
             z-index: 4;
         }
         .rating, .year {
             position: absolute;
-            left: 20px;
+            left: 2vw;
             z-index: 4;
-            font-size: 1.2em;
-            margin-top: 10px;
-            margin-left: 20px;
-            margin-bottom: 15px;
+            font-size: 1.2rem; /* Usando rem para o tamanho da fonte */
+            margin-top: 1vh;
+            margin-left: 2vw;
+            margin-bottom: 2vh;
         }
         .rating {
             top: 60%; 
@@ -95,20 +95,20 @@
             position: absolute;
             z-index: 4; 
             top: 80%; /* Diminui a margem superior para aproximar os botões */
-            left: 40px; 
+            left: 2vw; 
             transform: translateY(-50%); 
             display: flex; 
-            gap: 10px; 
+            gap: 2vw; /* Usando vw para o espaçamento entre os botões */
         }
         .buttons a,
         .buttons button {
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 1rem 2vw; /* Usando unidades relativas */
+            font-size: 1rem;
             background-color: #e50914;
             border: none;
             color: white;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 0.5rem;
             text-decoration: none;
             transition: transform 0.3s; 
         }
@@ -117,131 +117,57 @@
             transform: scale(1.1); 
         }
 
-        /* Ajuste para a rolagem horizontal dos containers de filmes */
-       /* Containers dos filmes */
-/* Containers dos filmes */
-.container {
-    display: flex;
-    gap: 20px; /* Controle do espaço entre as imagens */
-    overflow-x: auto; /* Permite rolagem horizontal */
-    overflow-y: hidden; /* Impede rolagem vertical */
-    padding: 5px;
-    width: 100%; 
-    margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-    justify-content: flex-start; /* Alinha os itens no início do container */
-    position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-    z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-}
+        .container {
+            display: flex;
+            gap: 2vw; /* Usando vw para o espaçamento entre os itens */
+            overflow-x: auto; 
+            overflow-y: hidden;
+            padding: 1vw;
+            width: 100%; 
+            margin-top: -3vh; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start;
+            position: relative; 
+            z-index: 5;
+        }
 
-/* Ajuste para as imagens dos filmes */
-.container img, .container2 img {
-    height: auto; /* Ajusta a altura da imagem proporcionalmente */
-    max-height: 350px; /* Limita a altura máxima das imagens */
-    width: auto; /* A largura é ajustada automaticamente para manter a proporção */
-    transition: transform 0.3s;
-    object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
-    display: block; /* Evita que a imagem seja tratada como inline */
-}
+        .container img {
+            height: auto;
+            max-height: 35vh; /* Limita a altura máxima das imagens com base em porcentagem da altura da tela */
+            width: auto; 
+            transition: transform 0.3s;
+            object-fit: cover;
+            display: block;
+        }
 
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
-
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
-
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
-
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
+        .container img:hover {
+            transform: scale(1.1); 
+        }
 
         .film {
-            margin-top:-90px;
             text-align: center; 
             position: relative;
         }
 
-       .film-title {
-            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:80px;
-            margin-bottom:20px;
-        }
-        .film-title4 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title1 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:100px;
-            margin-bottom:20px;
+        .film-title {
+            font-size: 1.2rem; /* Usando rem para o tamanho do título */
+            margin-top: -2vh; /* Ajuste da margem superior usando vh */
+            margin-left: 2vw;
+            margin-bottom: 2vh;
         }
 
-        .film-title2 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:120px;
-            margin-bottom:20px;
+        .container2 {
+            top: 5vh;
+            display: flex;
+            gap: 2vw;
+            overflow-x: auto; 
+            overflow-y: hidden; 
+            padding: 1vw;
+            width: 100%; 
+            margin-top: -3vh; 
+            justify-content: flex-start; 
+            position: relative;
+            z-index: 5; 
         }
-        .film-title3 {
-            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
-        }
-        .film-title6 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:110px;
-            margin-bottom:20px;
-        }
-        .film-title7 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:130px;
-            margin-bottom:20px;
-        }
-        .film-title8 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
-            margin-left:140px;
-            margin-bottom:20px;
-        }
-
-        .addams {
-            position: absolute; 
-            top: 50%; 
-            left: 2px; 
-            z-index: 3; 
-            margin-left:-10px;
-            height: auto;
-            width: 20px;
-        }
-
-         .container2{
-        top:40px;
-        display: flex;
-        gap: 20px; /* Controle do espaço entre as imagens */
-        overflow-x: auto; /* Permite rolagem horizontal */
-        overflow-y: hidden; /* Impede rolagem vertical */
-        padding: 5px;
-        width: 100%; 
-        margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-        justify-content: flex-start; /* Alinha os itens no início do container */
-        position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-        z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-         }
     </style>
 </head>
 <body>
@@ -258,12 +184,7 @@
         <div class="degrade"></div>
 
         <div class="logo">
-            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200px;">
-        </div>
-
-        <div class="addams">
-            <!-- Logo da Família Addams -->
-            <img src="imagens/addams.png" alt="Família Addams Logo">
+            <img src="imagens/logo.png" alt="Logo AdamaFlix">
         </div>
 
         <div class="rating">★ ★ ★ ★ ★</div>
@@ -275,7 +196,6 @@
         </div>
     </div>
 
-    <!-- Containers dos filmes -->
     <div class="container">
         <div class="film">
             <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>
@@ -323,5 +243,3 @@
 
 </body>
 </html>
-
-  

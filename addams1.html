@@ -32,15 +32,18 @@
             color: white;
             text-align: center;
             font-family: Arial, sans-serif;
+            z-index: 1; /* Garante que o conteúdo esteja sobre o vídeo */
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra no texto para melhorar visibilidade */
         }
 
         p {
             font-size: 1.5em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra no texto */
         }
 
         /* Estilos para o botão de "Voltar ao Início" */
@@ -58,6 +61,7 @@
             border-radius: 30px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            z-index: 2; /* Garante que o botão esteja acima do conteúdo */
         }
 
         /* Efeito de hover (quando o mouse passa sobre o botão) */
@@ -78,6 +82,12 @@
         <source src="1938vd.mp4" type="video/mp4">
         Seu navegador não suporta o formato de vídeo.
     </video>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <h1>Bem-vindo ao Meu Site!</h1>
+        <p>Esse é um exemplo de página com fundo de vídeo.</p>
+    </div>
 
     <!-- Botão Voltar ao Início -->
     <button class="back-to-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">

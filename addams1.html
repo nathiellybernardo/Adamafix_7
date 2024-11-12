@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         /* Vídeo de fundo */
         .video-background {
             position: absolute;
@@ -42,13 +42,40 @@
         p {
             font-size: 1.5em;
         }
+
+        /* Estilos para o botão de "Voltar ao Início" */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 30px; /* Posição do botão 30px acima do fundo */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza o botão */
+            padding: 15px 30px;
+            background-color: red; /* Cor de fundo vermelha */
+            color: white; /* Texto branco */
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efeito de hover (quando o mouse passa sobre o botão) */
+        .back-to-top-btn:hover {
+            background-color: darkred; /* Cor mais escura ao passar o mouse */
+        }
+
+        /* Efeito de foco no botão */
+        .back-to-top-btn:focus {
+            outline: none; /* Remove a borda padrão de foco */
+        }
     </style>
 </head>
 <body>
 
     <!-- Vídeo de fundo -->
     <video autoplay loop muted class="video-background">
-        <source src="1938vd.mp4" type="video/mp4">
+        <source src="video.mp4" type="video/mp4">
         Seu navegador não suporta o formato de vídeo.
     </video>
 
@@ -57,6 +84,11 @@
         <h1>Bem-vindo ao Meu Site!</h1>
         <p>Esse é um exemplo de página com fundo de vídeo.</p>
     </div>
+
+    <!-- Botão Voltar ao Início -->
+    <button class="back-to-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        Voltar ao Início
+    </button>
 
 </body>
 </html>

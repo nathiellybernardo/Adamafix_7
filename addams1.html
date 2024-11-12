@@ -7,7 +7,7 @@
     <style>
         /* Definindo a imagem de fundo e outras propriedades */
         body {
-            background-image: url('imagem1.jpg'); /* Substitua 'sua-imagem.jpg' pelo caminho da sua imagem */
+            background-image: url('sua-imagem.jpg'); /* Substitua 'sua-imagem.jpg' pelo caminho da sua imagem */
             background-size: cover; /* Faz a imagem cobrir toda a tela */
             background-position: center; /* Posiciona a imagem no centro */
             background-attachment: fixed; /* Faz com que a imagem de fundo não se mova ao rolar a página */
@@ -20,8 +20,33 @@
             text-align: center; /* Alinha o conteúdo ao centro */
             padding-top: 20%; /* Espaço para o conteúdo não ficar colado ao topo */
         }
+        /* Estilos para o botão "Voltar ao início" */
+        .botao-voltar {
+            position: fixed;
+            bottom: 20px; /* Posição 20px a partir da parte inferior */
+            left: 50%; /* Posiciona o botão no centro horizontal da tela */
+            transform: translateX(-50%); /* Ajusta o alinhamento do centro */
+            padding: 15px 30px; /* Tamanho do botão */
+            background-color: red; /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            font-size: 1.2em; /* Tamanho da fonte */
+            border: none; /* Remove a borda do botão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Cursor de clique */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+        }
+        .botao-voltar:hover {
+            background-color: darkred; /* Cor de fundo quando o botão é pressionado */
+        }
     </style>
 </head>
 <body>
+    <div class="conteudo">
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Este site tem uma imagem de fundo.</p>
+    </div>
+
+    <!-- Botão Voltar ao início -->
+    <button class="botao-voltar" onclick="window.location.href='index.html';">Voltar ao início</button>
 </body>
 </html>

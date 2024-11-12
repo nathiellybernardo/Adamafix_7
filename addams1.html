@@ -7,7 +7,7 @@
     <style>
         /* Definindo a imagem de fundo e outras propriedades */
         body {
-            background-image: url('imagem1.0.jpg'); /* Substitua 'sua-imagem.jpg' pelo caminho da sua imagem */
+            background-image: url('infos1.jpg'); /* Substitua 'infos1.jpg' pelo caminho da sua imagem */
             background-size: cover; /* Faz a imagem cobrir toda a tela */
             background-position: center; /* Posiciona a imagem no centro */
             background-attachment: fixed; /* Faz com que a imagem de fundo não se mova ao rolar a página */
@@ -24,7 +24,8 @@
         .botao-voltar {
             position: fixed;
             bottom: 20px; /* Posição 20px a partir da parte inferior */
-            left: 20px; /* Posiciona o botão no canto inferior esquerdo */
+            left: 50%; /* Posiciona o botão no centro horizontal da tela */
+            transform: translateX(-50%); /* Centraliza o botão horizontalmente */
             padding: 10px 20px; /* Tamanho reduzido do botão */
             background-color: red; /* Cor de fundo do botão */
             color: white; /* Cor do texto do botão */
@@ -40,6 +41,11 @@
     </style>
 </head>
 <body>
+
+    <div class="conteudo">
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Este site tem uma imagem de fundo.</p>
+    </div>
 
     <!-- Botão Voltar ao início -->
     <button class="botao-voltar" onclick="window.location.href='index.html';">Voltar ao início</button>

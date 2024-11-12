@@ -24,12 +24,11 @@
         .botao-voltar {
             position: fixed;
             bottom: 20px; /* Posição 20px a partir da parte inferior */
-            left: 50%; /* Posiciona o botão no centro horizontal da tela */
-            transform: translateX(-50%); /* Ajusta o alinhamento do centro */
-            padding: 15px 30px; /* Tamanho do botão */
+            left: 20px; /* Posiciona o botão no canto inferior esquerdo */
+            padding: 10px 20px; /* Tamanho reduzido do botão */
             background-color: red; /* Cor de fundo do botão */
             color: white; /* Cor do texto do botão */
-            font-size: 1.2em; /* Tamanho da fonte */
+            font-size: 1em; /* Tamanho de fonte reduzido */
             border: none; /* Remove a borda do botão */
             border-radius: 5px; /* Bordas arredondadas */
             cursor: pointer; /* Cursor de clique */
@@ -41,6 +40,11 @@
     </style>
 </head>
 <body>
+
+    <div class="conteudo">
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Este site tem uma imagem de fundo.</p>
+    </div>
 
     <!-- Botão Voltar ao início -->
     <button class="botao-voltar" onclick="window.location.href='index.html';">Voltar ao início</button>

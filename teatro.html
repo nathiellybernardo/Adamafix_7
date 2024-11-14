@@ -86,13 +86,23 @@
             margin-bottom: 15px;
         }
         .rating {
-           position: absolute;
+            position: absolute;
             left: 5px;
             z-index: 4;
             font-size: 1.2em;
             margin-top: 380px;
             margin-left: 20px;
             margin-bottom: 15px;
+        }
+
+        .titulo {
+            position: absolute;
+            top: 5%; /* Mover o título para o topo */
+            left: 20px;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            z-index: 4; /* Garantir que o título fique acima de outros elementos */
         }
     
         .buttons {
@@ -122,50 +132,37 @@
         }
 
         /* Ajuste para a rolagem horizontal dos containers de filmes */
-       /* Containers dos filmes */
-/* Containers dos filmes */
-.container {
-    display: flex;
-    gap: 20px; /* Controle do espaço entre as imagens */
-    overflow-x: auto; /* Permite rolagem horizontal */
-    overflow-y: hidden; /* Impede rolagem vertical */
-    padding: 5px;
-    width: 100%; 
-    margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-    justify-content: flex-start; /* Alinha os itens no início do container */
-    position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-    z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-}
+        .container {
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
+        }
 
-/* Ajuste para as imagens dos filmes */
-.container img, .container2 img {
-    height: auto; /* Ajusta a altura da imagem proporcionalmente */
-    max-height: 350px; /* Limita a altura máxima das imagens */
-    width: auto; /* A largura é ajustada automaticamente para manter a proporção */
-    transition: transform 0.3s;
-    object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
-    display: block; /* Evita que a imagem seja tratada como inline */
-}
+        .container img, .container2 img {
+            height: auto; /* Ajusta a altura da imagem proporcionalmente */
+            max-height: 350px; /* Limita a altura máxima das imagens */
+            width: auto; /* A largura é ajustada automaticamente para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
+            display: block; /* Evita que a imagem seja tratada como inline */
+        }
 
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
+        /* Efeito de zoom ao passar o mouse nas imagens */
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); /* Efeito de zoom */
+        }
 
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
-
-/* Efeito de zoom ao passar o mouse nas imagens */
-.container img:hover, .container2 img:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-}
-
-/* Evita que as imagens saiam do container ou se movam de forma errada */
-.container img, .container2 img {
-    object-position: center; /* Garante que a imagem fique centralizada */
-}
+        /* Evita que as imagens saiam do container ou se movam de forma errada */
+        .container img, .container2 img {
+            object-position: center; /* Garante que a imagem fique centralizada */
+        }
 
         .film {
             margin-top:-90px;
@@ -173,12 +170,13 @@
             position: relative;
         }
 
-       .film-title {
+        .film-title {
             margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
             font-size: 1em; /* Tamanho da fonte do título do filme */
             margin-left:80px;
             margin-bottom:20px;
         }
+
         .film-title4 {
             margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
             font-size: 1em; /* Tamanho da fonte do título do filme */
@@ -223,29 +221,25 @@
             margin-bottom:20px;
         }
 
-    
-         .container2{
-        top:40px;
-        display: flex;
-        gap: 20px; /* Controle do espaço entre as imagens */
-        overflow-x: auto; /* Permite rolagem horizontal */
-        overflow-y: hidden; /* Impede rolagem vertical */
-        padding: 5px;
-        width: 100%; 
-        margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-        justify-content: flex-start; /* Alinha os itens no início do container */
-        position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-        z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
-         }
-      
-
+        .container2{
+            top:40px;
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
+        }
     </style>
 </head>
 <body>
 
     <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
 
-    
     <div class="highlight">
         <video autoplay muted loop>
             <source src="videos/familia.mp4" type="video/mp4">
@@ -258,7 +252,7 @@
         <div class="logo">
             <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200px;">
         </div>
-       <div class="titulo">Família Addams</div>
+        <div class="titulo">Família Addams</div>
         <div class="rating">★ ★ ★ ★ ★</div>
         <div class="year">1964 | 1h 39m</div> 
         

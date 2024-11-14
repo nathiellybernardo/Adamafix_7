@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdamaFix</title><!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdamaFix</title>
     <style>
         body {
@@ -50,7 +45,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 30%; /* Altura do degrade */
+            height: 30%; 
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
             z-index: 2; 
         }
@@ -114,7 +109,7 @@
         .buttons {
             position: absolute;
             z-index: 4; 
-            top: 80%; /* Diminui a margem superior para aproximar os botões */
+            top: 80%; 
             left: 20px; 
             transform: translateY(-50%); 
             display: flex; 
@@ -177,52 +172,53 @@
         }
 
         .film-title {
-            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-80px; 
+            font-size: 1em; 
             margin-left:80px;
             margin-bottom:20px;
         }
 
         .film-title4 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-100px; 
+            font-size: 1em; 
             margin-left:110px;
             margin-bottom:20px;
         }
+
         .film-title1 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-100px; 
+            font-size: 1em; 
             margin-left:100px;
             margin-bottom:20px;
         }
 
         .film-title2 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-100px; 
+            font-size: 1em; 
             margin-left:120px;
             margin-bottom:20px;
         }
         .film-title3 {
-            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:100px; 
+            font-size: 1em; 
             margin-left:140px;
             margin-bottom:20px;
         }
         .film-title6 {
-            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-100px; 
+            font-size: 1em; 
             margin-left:110px;
             margin-bottom:20px;
         }
         .film-title7 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-110px; 
+            font-size: 1em; 
             margin-left:130px;
             margin-bottom:20px;
         }
         .film-title8 {
-            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
-            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-top:-110px; 
+            font-size: 1em; 
             margin-left:140px;
             margin-bottom:20px;
         }
@@ -230,16 +226,28 @@
         .container2{
             top:40px;
             display: flex;
-            gap: 20px; /* Controle do espaço entre as imagens */
-            overflow-x: auto; /* Permite rolagem horizontal */
-            overflow-y: hidden; /* Impede rolagem vertical */
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
             padding: 5px;
             width: 100%; 
-            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
-            justify-content: flex-start; /* Alinha os itens no início do container */
-            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
-            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
+            margin-top: -20px;
+            justify-content: flex-start;
+            position: relative;
+            z-index: 5;
         }
+
+        /* Ícone de som */
+        .sound-icon {
+            cursor: pointer;
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 270px;
+            left: 300px;
+            z-index: 5;
+        }
+
     </style>
 </head>
 <body>
@@ -247,7 +255,7 @@
     <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
 
     <div class="highlight">
-        <video autoplay muted loop>
+        <video id="video" autoplay muted loop>
             <source src="videos/familia.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
         </video>
@@ -262,55 +270,28 @@
         <div class="rating">★ ★ ★ ★ ★</div>
         <div class="year">1964 | 1h 39m</div> 
         
+        <!-- Ícone de som -->
+        <div class="sound-icon" onclick="toggleSound()">🔊</div>
+        
         <div class="buttons">
             <a href="videoprincipal.html" class="botao">Assistir Agora</a>
             <a href="index.html" class="botao">Voltar ao início</a>
         </div>
     </div>
 
-    <!-- Containers dos filmes -->
-    <div class="container">
-        <div class="film">
-            <a href="addams1.html"><img src="imagens/familia1.png" alt="Filme 1"></a>
-            <div class="film-title">Família Addams 1938</div>
-        </div>
-        <div class="film">
-            <a href="addams2.html"><img src="imagens/1964.png" alt="Filme 2"></a>
-            <div class="film-title">Família Addams 1964</div>
-        </div>
-        <div class="film">
-            <a href="addams3.html"><img src="imagens/1977.png" alt="Filme 3"></a>
-            <div class="film-title">Família Addams 1977</div>
-        </div>
-        <div class="film">
-            <a href="addams4.html"><img src="imagens/1991.png" alt="Filme 4"></a>
-            <div class="film-title">Família Addams 1991</div>
-        </div>
-    </div>
-
-    <div class="container2">
-       <div class="film">
-            <a href="addams5.html"><img src="imagens/1993.png" alt="Filme 5"></a>
-            <div class="film-title">Família Addams 1993</div>
-        </div>
-        <div class="film">
-            <a href="addams6.html"><img src="imagens/1998.png" alt="Filme 6"></a>
-            <div class="film-title">Família Addams 1998</div>
-        </div>
-        <div class="film">
-            <a href="addams7.html"><img src="imagens/2019.png" alt="Filme 7"></a>
-             <div class="film-title">Família Addams 2019</div>
-        </div>
-        <div class="film">
-            <a href="addams8.html"><img src="imagens/2023.png" alt="Filme 8"></a>
-            <div class="film-title">Família Addams 2023</div>
-        </div>
-    </div>
-
     <script>
-        function playSound() {
-            var sound = document.getElementById('tudumSound');
-            sound.play();
+        function toggleSound() {
+            var video = document.getElementById('video');
+            var soundIcon = document.querySelector('.sound-icon');
+            
+            // Se o vídeo estiver com o som mudo, desmute, e vice-versa
+            if (video.muted) {
+                video.muted = false;
+                soundIcon.textContent = '🔊';  // Ícone de som ativado
+            } else {
+                video.muted = true;
+                soundIcon.textContent = '🔇';  // Ícone de som desativado
+            }
         }
     </script>
 

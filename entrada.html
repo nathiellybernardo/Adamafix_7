@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdamaFlix</title>
+    <title>AdamaFix</title><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdamaFix</title>
     <style>
         body {
             margin: 0;
@@ -14,7 +19,7 @@
         .highlight {
             position: relative;
             width: 100%; 
-            height: 60vh; 
+            height: 80vh; 
             overflow: hidden;
             display: flex; 
             flex-direction: column; 
@@ -29,7 +34,6 @@
             height: 100%; 
             object-fit: cover; 
             z-index: 1; 
-            opacity: 110%;
         }
         .overlay {
             position: absolute;
@@ -37,7 +41,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(70, 68, 68, 0.7), rgba(0, 0, 0, 0.9));
+            background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
+            z-index: 2; 
+        }
+        .degrade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Altura do degrade */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
             z-index: 2; 
         }
         .navbar {
@@ -55,35 +68,53 @@
         }
         .logo {
             position: absolute; 
-            top: 15%; 
-            left: 20px; 
+            top: 10%; 
+            left: -5px; 
             z-index: 3; 
+            margin-left:-10px;
         }
-        .highlight h1,
-        .highlight p {
-            position: absolute; 
-            z-index: 4; 
-            color: white; 
-            margin: 0; 
-            padding: 20px; 
-        }
-        .highlight h1 {
-            font-size: 3em;
+        .highlight img {
+            position: absolute;
             top: 45%; 
             left: 20px; 
-            transform: translateY(-50%); 
+            width: 400px; 
+            transform: translateY(-50%);
+            z-index: 4;
         }
-        .highlight p {
+        .year {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
             font-size: 1.2em;
-            top: 55%; 
-            left: 20px; 
-            transform: translateY(-50%); 
+            margin-top: 410px;
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
+        .rating {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 380px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .titulo {
+            position: absolute;
+            top: 270px; /* Mover o título para o topo */
+            left: 30px;
+            font-size: 40px !important;
+            font-weight: bold;
+            color: white;
+            z-index: 4; /* Garantir que o título fique acima de outros elementos */
+        }
+    
         .buttons {
             position: absolute;
             z-index: 4; 
-            top: 70%; 
-            left: 37px; 
+            top: 80%; /* Diminui a margem superior para aproximar os botões */
+            left: 20px; 
             transform: translateY(-50%); 
             display: flex; 
             gap: 10px; 
@@ -105,35 +136,108 @@
             transform: scale(1.1); 
         }
 
+        /* Ajuste para a rolagem horizontal dos containers de filmes */
         .container {
             display: flex;
-            gap: 30px;
-            overflow-x: auto;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
             padding: 5px;
             width: 100%; 
-            margin-top: -50px; 
-            margin-left: 2%;
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
         }
-        .container2 {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 5px;
-            width: 100%; 
-            margin-top: -200px; 
-            margin-left: 3%;
-        }
+
         .container img, .container2 img {
-            height: 500px; 
-            transition: transform 0.3s; 
+            height: auto; /* Ajusta a altura da imagem proporcionalmente */
+            max-height: 350px; /* Limita a altura máxima das imagens */
+            width: auto; /* A largura é ajustada automaticamente para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
+            display: block; /* Evita que a imagem seja tratada como inline */
         }
+
+        /* Efeito de zoom ao passar o mouse nas imagens */
         .container img:hover, .container2 img:hover {
-            transform: scale(1.1); 
+            transform: scale(1.1); /* Efeito de zoom */
         }
-        .definicao {
-            margin-top: 7%;
-            margin-left: 5%;
-            margin-bottom: -5%;
+
+        /* Evita que as imagens saiam do container ou se movam de forma errada */
+        .container img, .container2 img {
+            object-position: center; /* Garante que a imagem fique centralizada */
+        }
+
+        .film {
+            margin-top:-90px;
+            text-align: center; 
+            position: relative;
+        }
+
+        .film-title {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+
+        .film-title4 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:110px;
+            margin-bottom:20px;
+        }
+        .film-title1 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:100px;
+            margin-bottom:20px;
+        }
+
+        .film-title2 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:120px;
+            margin-bottom:20px;
+        }
+        .film-title3 {
+            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:140px;
+            margin-bottom:20px;
+        }
+        .film-title6 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:110px;
+            margin-bottom:20px;
+        }
+        .film-title7 {
+            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:130px;
+            margin-bottom:20px;
+        }
+        .film-title8 {
+            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:140px;
+            margin-bottom:20px;
+        }
+
+        .container2{
+            top:40px;
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
         }
     </style>
 </head>
@@ -143,58 +247,68 @@
 
     <div class="highlight">
         <video autoplay muted loop>
-            <source src="videos/videorapunzel.mp4" type="video/mp4">
+            <source src="videos/familia.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
         </video>
         
         <div class="overlay"></div> 
+        <div class="degrade"></div>
 
         <div class="logo">
-            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200PX;">
+            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200px;">
         </div>
-
-        <div class="navbar">
-            <div>
-                <a href="login.html">Início</a>
-                <a href="#">Séries</a>
-                <a href="#">Filmes</a>
-                <a href="#">Novidades</a>
-                <a href="#">Minha Lista</a>
-            </div>
-        </div>
-
-        <h1>No Ritmo do Cinema</h1>
-        <p>Uma breve sinopse sobre o conteúdo em destaque.</p>
-
+        <div class="titulo"> No Ritmo<br> do Cinema</div>
+        <div class="rating">★ ★ ★ ★ ★</div>
+        <div class="year">1964 | 1h 39m</div> 
+        
         <div class="buttons">
-            <a href="https://www.youtube.com/watch?v=ZNOEUYtC63E" class="botao">Assistir Agora</a>
-            <button>Adicionar à Minha Lista</button>
+            <a href="videoprincipal.html" class="botao">Assistir Agora</a>
+            <a href="index.html" class="botao">Voltar ao início</a>
         </div>
     </div>
 
-    <div class="definicao">
-        <h2>Recomendados</h2>
-    </div>
-
+    <!-- Containers dos filmes -->
     <div class="container">
-        <div>
-            <a href="filme1.html" onclick="playSound()"><img src="imagens/filme1.png" alt="Filme 1"></a>
+        <div class="film">
+            <a href="addams1.html"><img src="filme9.png" alt="Filme 1"></a>
+            <div class="film-title">Família Addams 1938</div>
         </div>
-        <a href="filme2.html" onclick="playSound()"><img src="imagens/filme2.png" alt="Filme 2"></a>
-        <a href="filme3.html" onclick="playSound()"><img src="imagens/filme3.png" alt="Filme 3"></a>
-        <a href="filme4.html" onclick="playSound()"><img src="imagens/filme4.png" alt="Filme 4"></a> 
+        <div class="film">
+            <a href="addams2.html"><img src="filme10" alt="Filme 2"></a>
+            <div class="film-title">Família Addams 1964</div>
+        </div>
+        <div class="film">
+            <a href="addams3.html"><img src="filme11.png" alt="Filme 3"></a>
+            <div class="film-title">Halloween com a Família Addams</div>
+        </div>
+        <div class="film">
+            <a href="addams4.html"><img src="filme12" alt="Filme 4"></a>
+            <div class="film-title">Família Addams 1991</div>
+        </div>
     </div>
-   
+
     <div class="container2">
-        <a href="filme5.html" onclick="playSound()"><img src="imagens/filme5.png" alt="Filme 5"></a>
-        <a href="filme6.html" onclick="playSound()"><img src="imagens/filme6.png" alt="Filme 6"></a>
-        <a href="filme7.html" onclick="playSound()"><img src="imagens/filme7.png" alt="Filme 7"></a>
-        <a href="filme8.html" onclick="playSound()"><img src="imagens/filme8.png" alt="Filme 8"></a>
+       <div class="film">
+            <a href="addams5.html"><img src="filme13.png" alt="Filme 5"></a>
+            <div class="film-title">Valores da Família Addams</div>
+        </div>
+        <div class="film">
+            <a href="addams6.html"><img src="filme14.png" alt="Filme 6"></a>
+            <div class="film-title">Família Addams 1998</div>
+        </div>
+        <div class="film">
+            <a href="addams7.html"><img src="filme15.png" alt="Filme 7"></a>
+             <div class="film-title">Família Addams 2019</div>
+        </div>
+        <div class="film">
+            <a href="addams8.html"><img src="filme16.png" alt="Filme 8"></a>
+            <div class="film-title">Wandinha</div>
+        </div>
     </div>
 
     <script>
         function playSound() {
-            var sound = document.getElementById('tudum.m4a');
+            var sound = document.getElementById('tudumSound');
             sound.play();
         }
     </script>

@@ -5,11 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmes</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #141414;
-            color: #fff;
-            
+        .container {
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
+        }
+
+        .container img, .container2 img {
+            height: auto; /* Ajusta a altura da imagem proporcionalmente */
+            max-height: 350px; /* Limita a altura máxima das imagens */
+            width: auto; /* A largura é ajustada automaticamente para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
+            display: block; /* Evita que a imagem seja tratada como inline */
+        }
+
+        /* Efeito de zoom ao passar o mouse nas imagens */
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); /* Efeito de zoom */
+        }
+
+        /* Evita que as imagens saiam do container ou se movam de forma errada */
+        .container img, .container2 img {
+            object-position: center; /* Garante que a imagem fique centralizada */
+        }
+
+        .film {
+            margin-top:-90px;
+            text-align: center; 
+            position: relative;
+        }
+
+        .film-title {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:60px;
+            margin-bottom:20px;
+        }
+
+        .film-title4 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+         .film-title5{
+             margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+        .film-title1 {
+            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:30px;
+            margin-bottom:20px;
+        }
+
+        .film-title2 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:120px;
+            margin-bottom:20px;
+        }
+        .film-title3 {
+            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:140px;
+            margin-bottom:20px;
+        }
+        .film-title6 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+        .film-title7 {
+              margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:90px;
+            margin-bottom:20px;
+        }
+        .film-title8 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:67px;
+            margin-bottom:20px;
+        }
+
+        .container2{
+            top:40px;
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
         }
 
         /* Estilo para o vídeo de fundo */

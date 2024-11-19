@@ -57,20 +57,18 @@
             border-radius: 8px; /* Bordas arredondadas nas imagens */
         }
 
-      .logo {
-    font-size: 6em; /* Aumentei o tamanho do texto também */
-    font-weight: bold;
-    color: #e50914;
+   .logo {
     position: absolute;
-    top: 20px; /* Mantive o mesmo valor para o topo */
-    left: 25%; /* Mantive a logo mais à esquerda */
+    top: 20px; /* Distância do topo */
+    left: 25%; /* Distância da esquerda */
     z-index: 10;
 }
 
 .logo img {
-    border: none;
-    width: 450px; /* Aumentei o tamanho da logo para 450px */
-    height: auto;
+    width: 450px; /* Aumentei o tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    border: none; /* Remove qualquer borda, se houver */
+    object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner sem cortar */
 }
         
         a {

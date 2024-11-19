@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Imagem de Fundo</title>
+    <style>
+        /* Definindo a imagem de fundo e outras propriedades */
+        body {
+            background-image: url('infos7.3.jpg'); /* Substitua 'sua-imagem.jpg' pelo caminho da sua imagem */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Posiciona a imagem no centro */
+            background-attachment: fixed; /* Faz com que a imagem de fundo não se mova ao rolar a página */
+            margin: 0;
+            height: 100vh; /* Garante que a imagem cubra toda a altura da janela */
+            color: white; /* Define a cor do texto */
+            font-family: Arial, sans-serif; /* Fonte para o texto */
+        }
+        .conteudo {
+            text-align: center; /* Alinha o conteúdo ao centro */
+            padding-top: 20%; /* Espaço para o conteúdo não ficar colado ao topo */
+        }
+        /* Estilos para o botão "Voltar ao início" */
+        .botao-voltar {
+            position: fixed;
+            bottom: 20px; /* Posição 20px a partir da parte inferior */
+            left: 20px; /* Posiciona o botão no canto inferior esquerdo */
+            padding: 10px 20px; /* Tamanho reduzido do botão */
+            background-color: red; /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            font-size: 1em; /* Tamanho de fonte reduzido */
+            border: none; /* Remove a borda do botão */
+            border-radius: 5px; /* Bordas arredondadas */
+            cursor: pointer; /* Cursor de clique */
+            transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+        }
+        .botao-voltar:hover {
+            background-color: darkred; /* Cor de fundo quando o botão é pressionado */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão Voltar ao início -->
+    <button class="botao-voltar" onclick="window.location.href='perfil4.html';">Voltar ao início</button>
+</body>
+</html>

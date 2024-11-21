@@ -6,84 +6,84 @@
     <title>Exibição de Filme</title>
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow: hidden;
-        }
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
 
-        .container {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
+.container {
+    position: relative;
+    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+    width: 100%; /* Garantir que o container ocupe toda a largura da tela */
+    overflow: hidden; /* Impede que o conteúdo ultrapasse os limites */
+}
 
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
-        }
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%; /* Faz o vídeo ocupar toda a largura */
+    height: 100%; /* Faz o vídeo ocupar toda a altura */
+    object-fit: cover; /* Ajusta o vídeo para cobrir toda a tela, cortando o excesso se necessário */
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    transform: translate(-50%, -50%); /* Centraliza o vídeo */
+    filter: brightness(0.5); /* Escurece o vídeo para melhor leitura do conteúdo sobre ele */
+}
 
-        .info {
-            position: absolute;
-            top: 550px; /* Ajustando a posição dos botões mais para cima */
-            left: 30px;
-            max-width: 600px;
-        }
+.info {
+    position: absolute;
+    top: 550px; /* Ajustando a posição dos botões mais para cima */
+    left: 30px;
+    max-width: 600px;
+}
 
-        .logo {
-            width: 200px; /* Diminuindo o tamanho da logo */
-            margin-bottom: -100px;
-            margin-top: 230px;
-            margin-left: 8px;
-        }
+.logo {
+    width: 200px; /* Diminuindo o tamanho da logo */
+    margin-bottom: -100px;
+    margin-top: 230px;
+    margin-left: 8px;
+}
 
-        p {
-            font-size: 1rem;
-            margin: 15px 0;
-        }
+p {
+    font-size: 1rem;
+    margin: 15px 0;
+}
 
-    
-        .buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px; /* Diminui o espaço entre os botões */
-        }
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px; /* Diminui o espaço entre os botões */
+}
 
-        .play-button, .more-info-button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            color: white;
-        }
+.play-button, .more-info-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+}
 
-        .play-button {
-            background-color: #e50914;
-        }
+.play-button {
+    background-color: #e50914;
+}
 
-        .more-info-button {
-            background-color: #e50914;
-            color: rgb(255, 255, 255);
-        }
+.more-info-button {
+    background-color: #e50914;
+    color: rgb(255, 255, 255);
+}
 
-        .play-button:hover {
-            background-color: #f40612;
-        }
+.play-button:hover {
+    background-color: #f40612;
+}
 
-        .more-info-button:hover, 
-        .play-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
+.more-info-button:hover, 
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
     </style>
 </head>
 <body>

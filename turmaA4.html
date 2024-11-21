@@ -144,4 +144,16 @@
             soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
         });
 
-        // Ativar/desativar o som ao
+        // Ativar/desativar o som ao clicar no botão "Ativar Som"
+        soundButton.addEventListener('click', () => {
+            if (videoPlayer.muted) {
+                videoPlayer.muted = false;
+                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
+            } else {
+                videoPlayer.muted = true;
+                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
+            }
+        });
+    </script>
+</body>
+</html>

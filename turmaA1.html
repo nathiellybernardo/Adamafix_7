@@ -124,8 +124,8 @@
             <div class="buttons">
                 <!-- Botão para iniciar o vídeo -->
                 <button class="play-button" id="playButton">Iniciar Vídeo</button>
-                <!-- Botão para ativar o som -->
-                <button class="sound-button" id="soundButton">Ativar Som</button>
+                <!-- Botão para ativar o som, inicialmente oculto -->
+                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
                 <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
             </div>
         </div>
@@ -138,18 +138,19 @@
 
         // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
         playButton.addEventListener('click', () => {
-            videoPlayer.play();
-            playButton.style.display = 'none'; // Esconde o botão depois de iniciar
+            videoPlayer.play(); // Inicia o vídeo
+            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
         });
 
         // Ativar/desativar o som ao clicar no botão "Ativar Som"
         soundButton.addEventListener('click', () => {
             if (videoPlayer.muted) {
                 videoPlayer.muted = false;
-                soundButton.textContent = 'Desativar Som';
+                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
             } else {
                 videoPlayer.muted = true;
-                soundButton.textContent = 'Ativar Som';
+                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
             }
         });
     </script>

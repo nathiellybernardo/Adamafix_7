@@ -57,24 +57,18 @@
             border-radius: 8px; /* Bordas arredondadas nas imagens */
         }
 
-   .logo {
-    position: relative;
-    top: 10px; /* Distância do topo */
-    bottom:5px;
-    left: 10px; /* Distância da esquerda */
+  .logo {
+    position: absolute; /* Usando absolute para centralizar corretamente */
+    top: 10px; /* Distância de 10px do topo */
+    left: 50%; /* Centraliza a logo na horizontal */
+    transform: translateX(-50%); /* Ajusta a posição exata para o centro */
     z-index: 10;
 }
 
 .logo img {
     width: 300px; /* Aumentei o tamanho da logo */
     height: auto; /* Mantém a proporção da imagem */
-    border: none; /* Remove qualquer borda, se houver */
     object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner sem cortar */
-     position: relative;
-    top: 10px; /* Distância do topo */
-    bottom:5px;
-    left: 10px; /* Distância da esquerda */
-    z-index: 10;
 }
         
         a {

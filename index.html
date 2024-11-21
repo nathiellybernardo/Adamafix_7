@@ -6,7 +6,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-       body {
+       body {<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>AdamaFix</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #141414, #000000); /* Degradê do cinza escuro para preto */
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            padding: 0 15px; /* Adiciona padding nas laterais */
+            overflow-x: hidden; /* Impede rolagem horizontal no corpo da página */
+        }
+
+        h1 {
+            margin-top: 20px; /* Ajusta a distância do título da parte superior */
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
+            justify-content: center; /* Centraliza os itens */
+            gap: 20px;
+            width: 100%; /* Ocupa toda a largura da tela */
+            max-width: 100%;
+        }
+
+        .perfil {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            flex: 1 1 200px; /* A largura mínima é de 200px, mas pode se expandir */
+            max-width: 200px; /* Limita a largura máxima de cada item */
+            box-sizing: border-box;
+        }
+
+        .perfil:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 100%; /* Ajusta as imagens para ocupar toda a largura do container */
+            height: auto; /* A altura será automática para manter a proporção da imagem */
+            object-fit: cover; /* Corta a imagem de maneira proporcional, sem distorcer */
+            border-radius: 8px; /* Bordas arredondadas nas imagens */
+        }
+
+   .logo {
+    position: relative;
+    top: 10px; /* Distância do topo */
+    bottom:5px;
+    left: 10px; /* Distância da esquerda */
+    z-index: 10;
+}
+
+.logo img {
+    width: 300px; /* Aumentei o tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    border: none; /* Remove qualquer borda, se houver */
+    object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner sem cortar */
+     position: relative;
+    top: 10px; /* Distância do topo */
+    bottom:5px;
+    left: 10px; /* Distância da esquerda */
+    z-index: 10;
+}
+        
+        a {
+            text-decoration: none; /* Remove o sublinhado dos links */
+        }
+
+        .perfil p {
+            color: white;
+            margin: 10px 0 0;
+        }
+
+        /* Adiciona uma margem inferior aos itens da primeira linha */
+        .container .perfil:nth-child(-n+2) {
+            margin-bottom: 30px; /* Aumenta a margem inferior entre as duas linhas */
+        }
+
+        /* Margem personalizada entre a imagem 1 e a imagem 2, e entre a imagem 3 e a imagem 4 */
+        .container .perfil:nth-child(1) {
+            margin-right: 15px; /* Distância extra entre a imagem 1 e a imagem 2 */
+        }
+
+        .container .perfil:nth-child(3) {
+            margin-right: 15px; /* Distância extra entre a imagem 3 e a imagem 4 */
+        }
+
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .perfil {
+                width: 45%; /* Ajusta a largura dos perfis para telas menores */
+                max-width: 1px; /* Limita a largura para que se ajustem bem */
+            }
+
+            .container .perfil:nth-child(1),
+            .container .perfil:nth-child(3) {
+                margin-right: 10px; /* Distância menor entre as imagens em telas menores */
+            }
+        }
+
+        /* Media Queries para telas muito pequenas */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+
+            .perfil {
+                width: 45%; /* Ajusta a largura dos perfis para telas muito pequenas */
+                max-width: 130px; /* Limita ainda mais a largura dos perfis */
+            }
+
+            .container {
+                gap: 10px; /* Menor espaçamento entre os itens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"><img src="imagens/logo.png" alt="Logo"></div>
+    
+    <h1>Quem você veio assistir?</h1>
+    <div class="container">
+        <div class="perfil">
+            <a href="teatro.html" target="_blank">
+                <img src="imagens/perfil1.png" alt="Imagem Usuário 1"> 
+                <p>Teatro</p>
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="entrada.html" target="_blank">
+                <img src="imagens/perfil2.jpg" alt="Imagem Usuário 2">
+                <p>Turma A</p>
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="entradab.html" target="_blank">
+                <img src="imagens/perfil3.jpg" alt="Imagem Usuário 3">
+                <p>Turma B</p>
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="perfil4.html" target="_blank">
+                <img src="imagens/perfil4.jpg" alt="Imagem Usuário 4">
+                <p>Todas as opções!</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #141414, #000000); /* Degradê do cinza escuro para preto */
     color: white;

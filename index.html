@@ -6,76 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #141414, #000000); /* Degradê do cinza escuro para preto */
-            color: white;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            position: relative;
-            padding: 0 15px; /* Adiciona padding nas laterais */
-            overflow-x: hidden; /* Impede rolagem horizontal no corpo da página */
-        }
-
-        h1 {
-            margin-top: 20px; /* Ajusta a distância do título da parte superior */
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.8em;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha */
-            justify-content: center; /* Centraliza os itens */
-            gap: 20px;
-            width: 100%; /* Ocupa toda a largura da tela */
-            max-width: 100%;
-        }
-
-        .perfil {
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-            flex: 1 1 200px; /* A largura mínima é de 200px, mas pode se expandir */
-            max-width: 200px; /* Limita a largura máxima de cada item */
-            box-sizing: border-box;
-        }
-
-        .perfil:hover {
-            transform: scale(1.1);
-        }
-
-        img {
-            width: 100%; /* Ajusta as imagens para ocupar toda a largura do container */
-            height: auto; /* A altura será automática para manter a proporção da imagem */
-            object-fit: cover; /* Corta a imagem de maneira proporcional, sem distorcer */
-            border-radius: 8px; /* Bordas arredondadas nas imagens */
-        }
-
-   .logo {
+       body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #141414, #000000); /* Degradê do cinza escuro para preto */
+    color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Garante que os itens fiquem no topo */
+    min-height: 100vh;
     position: relative;
-    top: 10px; /* Distância do topo */
-    bottom:5px;
-    left: 10px; /* Distância da esquerda */
+    padding: 0 15px; /* Adiciona padding nas laterais */
+    overflow-x: hidden; /* Impede rolagem horizontal no corpo da página */
+}
+
+h1 {
+    margin-top: 10px; /* Distância de 10px do topo */
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.logo {
+    position: absolute; /* Usando absolute para centralizar corretamente */
+    top: 10px; /* Distância de 10px do topo */
+    left: 50%; /* Centraliza a logo na horizontal */
+    transform: translateX(-50%); /* Ajusta a posição exata para o centro */
     z-index: 10;
 }
 
 .logo img {
     width: 300px; /* Aumentei o tamanho da logo */
     height: auto; /* Mantém a proporção da imagem */
-    border: none; /* Remove qualquer borda, se houver */
     object-fit: contain; /* Garante que a imagem se ajuste dentro do contêiner sem cortar */
-     position: relative;
-    top: 10px; /* Distância do topo */
-    bottom:5px;
-    left: 10px; /* Distância da esquerda */
-    z-index: 10;
 }
+
         
         a {
             text-decoration: none; /* Remove o sublinhado dos links */

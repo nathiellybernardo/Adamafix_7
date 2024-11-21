@@ -47,6 +47,7 @@
             overflow: hidden;
         }
 
+        /* O vídeo ficará pausado e como fundo */
         video {
             position: absolute;
             top: 50%;
@@ -58,6 +59,9 @@
             z-index: -1;
             transform: translate(-50%, -50%);
             filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
+            background-color: black; /* Previne fundo branco antes de iniciar */
+            display: block;
+            /* Inicialmente o vídeo está pausado */
         }
 
         .info {
@@ -115,6 +119,7 @@
     <div class="year">2021 | 1h 37m</div>
 
     <div class="container">
+        <!-- Vídeo pausado inicialmente -->
         <video id="videoPlayer" loop>
             <source src="videos/turmaA1.mp4" type="video/mp4">
             Seu navegador não suporta vídeo.

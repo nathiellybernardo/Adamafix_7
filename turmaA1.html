@@ -61,7 +61,6 @@
             filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
             background-color: black; /* Previne fundo branco antes de iniciar */
             display: block;
-            /* Inicialmente o vídeo está pausado */
         }
 
         .info {
@@ -157,6 +156,18 @@
                 videoPlayer.muted = true;
                 soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
             }
+        });
+
+        // Quando o vídeo for pausado, reexibe o botão de play e esconde o de som
+        videoPlayer.addEventListener('pause', () => {
+            playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
+        });
+
+        // Opcional: Quando o vídeo terminar (evento ended), reexibe o botão de play
+        videoPlayer.addEventListener('ended', () => {
+            playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
         });
     </script>
 </body>

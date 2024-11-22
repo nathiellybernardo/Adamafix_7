@@ -33,17 +33,18 @@
 
         .info {
             position: absolute;
-            bottom: 50px;
+            top: 450px; /* Move os botões para cima */
             left: 50px;
             max-width: 600px;
-         
         }
 
-        .logo {
-            width: 300px; /* Ajuste o tamanho conforme necessário */
-            margin-bottom: -100px;
-            margin-top:180px;
-            margin-left: 10px;
+        .titulo {
+            position: absolute;
+            bottom: 10px; /* Posiciona o título no canto inferior esquerdo */
+            left: 20px;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
         }
 
         p {
@@ -92,13 +93,14 @@
             Seu navegador não suporta vídeo.
         </video>
      
-            <div class="logo"><img src="imagens/addams.png" alt="Logo Família Addams" class="logo"> <!-- Substitua pelo caminho da sua logo --></div>   
-               <div class="info">
-            <p>Descrição do filme. Uma breve sinopse que captura a essência da história, com um resumo dos principais pontos e o que o torna interessante.</p>
+        <div class="titulo">No Ritmo do Cinema</div> <!-- Título no canto inferior esquerdo -->
+
+        <div class="info">
             <div class="buttons">
-            
-              <a href="teatro.html"><button class="play-button">Voltar ao início</button></a>
-             <a href= "maisinfosgeral.html"><button class="more-info-button">Mais Informações</button></a>
+                <!-- Botão Voltar ao início -->
+                <a href="teatro.html"><button class="play-button">Voltar ao início</button></a>
+                <!-- Botão Mais Informações -->
+                <a href="maisinfosgeral.html"><button class="more-info-button">Mais Informações</button></a>
             </div>
         </div>
     </div>

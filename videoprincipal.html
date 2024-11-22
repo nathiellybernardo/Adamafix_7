@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Filme</title>
     <style>
-           .year {
+        .year {
             position: absolute;
             left: 15px;
             z-index: 4;
@@ -62,18 +62,9 @@
 
         .info {
             position: absolute;
-            top: 450px; /* Posição dos botões ajustada */
-            left: 50px;
+            top: 550px; /* Ajustando a posição dos botões mais para cima */
+            left: 30px;
             max-width: 600px;
-        }
-
-        .titulo {
-            position: absolute;
-            bottom: 150px; /* Ajustado para ficar acima do botão */
-            left: 20px;
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
         }
 
         p {
@@ -81,11 +72,11 @@
             margin: 15px 0;
         }
 
+    
         .buttons {
-            gap: 5px;
-            margin-top: 108px; /* Distância entre o título e o botão */
-            left:2px;
-            
+            display: flex;
+            gap: 10px;
+            margin-top: 20px; /* Diminui o espaço entre os botões */
         }
 
         .play-button, .more-info-button {
@@ -96,142 +87,36 @@
             cursor: pointer;
             transition: background-color 0.3s;
             color: white;
-            left:5px;
         }
 
+    
         .play-button {
             background-color: #e50914;
-              left:5px;
-        }
-
-        .more-info-button {
-            background-color: #e50914;
-            color: rgb(255, 255, 255);
-              left:5px;
         }
 
         .play-button:hover {
             background-color: #f40612;
         }
-
-        .more-info-button:hover, 
+ 
         .play-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
-      <div class="titulo"> Viva - A Vida <br> É Uma Festa</div>
+     <div class="titulo">FootLoose</div>
         <div class="rating">★ ★ ★ ★ ★</div>
-        <div class="year">2018 | 1h45min</div> 
-    <div class="container">
-    <div class="container">
-        <video autoplay muted loop>
-            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
-            Seu navegador não suporta vídeo.
-        </video>
-     
-        <div class="info">
-            <div class="buttons">
-                <!-- Botão Voltar ao início -->
-                <a href="entrada.html"><button class="play-button">Voltar ao início</button></a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Filme</title>
-    <style>
-        /* CSS conforme modificado acima */
-    </style>
-</head>
-<body>
-    <div class="titulo"> Viva - A Vida <br> É Uma Festa</div>
-    <div class="rating">★ ★ ★ ★ ★</div>
-    <div class="year">2018 | 1h45min</div> 
+        <div class="year">1984 | 1h50min </div> 
     <div class="container">
         <video autoplay muted loop>
             <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
             Seu navegador não suporta vídeo.
         </video>
+
+    
         <div class="info">
             <div class="buttons">
-                <!-- Botão Voltar ao início -->
-                <a href="entrada.html"><button class="play-button">Voltar ao início</button></a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Filme</title>
-    <style>
-.buttons {
-    display: flex;            /* Flexbox para garantir que os itens sejam alinhados corretamente */
-    justify-content: flex-start; /* Alinha os itens à esquerda */
-    margin-top: 108px;        /* Distância entre o título e o botão */
-    padding-left: 10px;       /* Ajuste para deixar um pequeno espaço da borda */
-}
-
-.play-button, .more-info-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: white;
-}
-
-.play-button {
-    background-color: #e50914;
-}
-
-.more-info-button {
-    background-color: #e50914;
-    color: rgb(255, 255, 255);
-}
-
-.play-button:hover {
-    background-color: #f40612;
-}
-
-.more-info-button:hover, 
-.play-button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-
-        .more-info-button:hover, 
-        .play-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-    </style>
-</head>
-<body>
-      <div class="titulo"> Viva - A Vida <br> É Uma Festa</div>
-        <div class="rating">★ ★ ★ ★ ★</div>
-        <div class="year">2018 | 1h45min</div> 
-    <div class="container">
-    <div class="container">
-        <video autoplay muted loop>
-            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
-            Seu navegador não suporta vídeo.
-        </video>
-     
-        <div class="info">
-            <div class="buttons">
-                <!-- Botão Voltar ao início -->
-                <a href="entrada.html"><button class="play-button">Voltar ao início</button></a>
+                <a href="entradab.html"><button class="play-button">Voltar ao início</button></a>
             </div>
         </div>
     </div>

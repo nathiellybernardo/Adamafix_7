@@ -80,36 +80,40 @@
             margin: 15px 0;
         }
 
-      .buttons {
+     .buttons {
+    display: flex;
+    justify-content: flex-start; /* Alinha os botões à esquerda */
     gap: 5px;
     margin-top: 108px; /* Distância entre o título e o botão */
-    margin-left: 0;  /* Ajuste de margem esquerda */
-    left: 0;  /* Move o botão para a extremidade esquerda */
 }
 
+.play-button, .more-info-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+}
 
-        .play-button, .more-info-button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            color: white;
-        }
+.play-button {
+    background-color: #e50914;
+}
 
-        .play-button {
-            background-color: #e50914;
-        }
+.more-info-button {
+    background-color: #e50914;
+    color: rgb(255, 255, 255);
+}
 
-        .more-info-button {
-            background-color: #e50914;
-            color: rgb(255, 255, 255);
-        }
+.play-button:hover {
+    background-color: #f40612;
+}
 
-        .play-button:hover {
-            background-color: #f40612;
-        }
+.more-info-button:hover, 
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
         .more-info-button:hover, 
         .play-button:hover {

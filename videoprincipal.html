@@ -5,86 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Filme</title>
     <style>
-           .year {
-            position: absolute;
-            left: 15px;
-            z-index: 4;
-            font-size: 1.2em;
-            margin-top: 520px;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        .rating {
-            position: absolute;
-            left: 15px;
-            z-index: 4;
-            font-size: 1.2em;
-            margin-top: 480px;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .titulo {
-            position: absolute;
-            top: 380px; /* Mover o título para o topo */
-            left: 30px;
-            font-size: 40px !important;
-            font-weight: bold;
-            color: white;
-            z-index: 4; /* Garantir que o título fique acima de outros elementos */
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
-        }
-
-        .info {
-            position: absolute;
-            top: 450px; /* Posição dos botões ajustada */
-            left: 50px;
-            max-width: 600px;
-        }
-
-        .titulo {
-            position: absolute;
-            bottom: 150px; /* Ajustado para ficar acima do botão */
-            left: 20px;
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
-        }
-
-        p {
-            font-size: 1rem;
-            margin: 15px 0;
-        }
-
-     .buttons {
-    display: flex;
-    justify-content: flex-start; /* Alinha os botões à esquerda */
-    gap: 5px;
-    margin-top: 108px; /* Distância entre o título e o botão */
+.buttons {
+    display: flex;            /* Flexbox para garantir que os itens sejam alinhados corretamente */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    margin-top: 108px;        /* Distância entre o título e o botão */
+    padding-left: 10px;       /* Ajuste para deixar um pequeno espaço da borda */
 }
 
 .play-button, .more-info-button {
@@ -114,6 +39,7 @@
 .play-button:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
+
 
         .more-info-button:hover, 
         .play-button:hover {

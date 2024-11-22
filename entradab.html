@@ -4,14 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Filme</title>
+    <title>AdamaFix</title><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdamaFix</title>
     <style>
-         .year {
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black;
+        }
+        .highlight {
+            position: relative;
+            width: 100%; 
+            height: 80vh; 
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; 
+            align-items: flex-start; 
+        }
+        .highlight video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+            z-index: 1; 
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(41, 37, 37, 0.7), rgba(0, 0, 0, 0.9));
+            z-index: 2; 
+        }
+        .degrade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%; /* Altura do degrade */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+            z-index: 2; 
+        }
+        .navbar {
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            display: flex;
+            z-index: 3; 
+            padding: 10px; 
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px; 
+        }
+        .logo {
+            position: absolute; 
+            top: 10%; 
+            left: -5px; 
+            z-index: 3; 
+            margin-left:-10px;
+        }
+        .highlight img {
+            position: absolute;
+            top: 45%; 
+            left: 20px; 
+            width: 400px; 
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+        .year {
             position: absolute;
             left: 15px;
             z-index: 4;
             font-size: 1.2em;
-            margin-top: 550px;
+            margin-top: 400px;
             margin-left: 20px;
             margin-bottom: 15px;
         }
@@ -20,139 +96,229 @@
             left: 15px;
             z-index: 4;
             font-size: 1.2em;
-            margin-top: 515px;
+            margin-top: 370px;
             margin-left: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .titulo {
             position: absolute;
-            top: 415px; /* Mover o título para o topo */
+            top: 270px; /* Mover o título para o topo */
             left: 30px;
             font-size: 40px !important;
             font-weight: bold;
             color: white;
             z-index: 4; /* Garantir que o título fique acima de outros elementos */
         }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
-        }
-
-        .info {
-            position: absolute;
-            top: 580px; /* Ajustando a posição dos botões mais para cima */
-            left: 30px;
-            max-width: 600px;
-        }
-
-        p {
-            font-size: 1rem;
-            margin: 15px 0;
-        }
-
+    
         .buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px; /* Diminui o espaço entre os botões */
+            position: absolute;
+            z-index: 4; 
+            top: 80%; /* Diminui a margem superior para aproximar os botões */
+            left: 20px; 
+            transform: translateY(-50%); 
+            display: flex; 
+            gap: 10px; 
         }
-
-        .play-button, .sound-button, .more-info-button {
+        .buttons a,
+        .buttons button {
             padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            color: white;
-        }
-
-        .play-button {
+            font-size: 1em;
             background-color: #e50914;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s; 
+        }
+        .buttons a:hover,
+        .buttons button:hover {
+            transform: scale(1.1); 
         }
 
-        .play-button:hover {
-            background-color: #f40612;
+        /* Ajuste para a rolagem horizontal dos containers de filmes */
+        .container {
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
         }
 
-        .sound-button {
-            background-color: #2d2d2d;
+        .container img, .container2 img {
+            height: auto; /* Ajusta a altura da imagem proporcionalmente */
+            max-height: 350px; /* Limita a altura máxima das imagens */
+            width: auto; /* A largura é ajustada automaticamente para manter a proporção */
+            transition: transform 0.3s;
+            object-fit: cover; /* A imagem cobrirá a área do container sem distorção */
+            display: block; /* Evita que a imagem seja tratada como inline */
         }
 
-        .sound-button:hover {
-            background-color: #444444;
+        /* Efeito de zoom ao passar o mouse nas imagens */
+        .container img:hover, .container2 img:hover {
+            transform: scale(1.1); /* Efeito de zoom */
         }
 
-        .play-button:hover, .sound-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
+        /* Evita que as imagens saiam do container ou se movam de forma errada */
+        .container img, .container2 img {
+            object-position: center; /* Garante que a imagem fique centralizada */
+        }
+
+        .film {
+            margin-top:-90px;
+            text-align: center; 
+            position: relative;
+        }
+
+        .film-title {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:60px;
+            margin-bottom:20px;
+        }
+
+        .film-title4 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+         .film-title5{
+             margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+        .film-title1 {
+            margin-top:-110px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:30px;
+            margin-bottom:20px;
+        }
+
+        .film-title2 {
+            margin-top:-100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:120px;
+            margin-bottom:20px;
+        }
+        .film-title3 {
+            margin-top:100px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:140px;
+            margin-bottom:20px;
+        }
+        .film-title6 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:80px;
+            margin-bottom:20px;
+        }
+        .film-title7 {
+              margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:90px;
+            margin-bottom:20px;
+        }
+        .film-title8 {
+            margin-top:-80px; /* Ajuste para espaço entre a imagem e o título */
+            font-size: 1em; /* Tamanho da fonte do título do filme */
+            margin-left:67px;
+            margin-bottom:20px;
+        }
+
+        .container2{
+            top:40px;
+            display: flex;
+            gap: 20px; /* Controle do espaço entre as imagens */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            overflow-y: hidden; /* Impede rolagem vertical */
+            padding: 5px;
+            width: 100%; 
+            margin-top: -20px; /* Aproxima os containers dos filmes da seção de botões */
+            justify-content: flex-start; /* Alinha os itens no início do container */
+            position: relative; /* Garante que os elementos internos sejam posicionados em relação ao container */
+            z-index: 5; /* Adiciona o z-index para sobrepor ao conteúdo acima */
         }
     </style>
 </head>
 <body>
-    <div class="titulo">No Ritmo <br>do Cinema</div>
-    <div class="rating">★ ★ ★ ★ ★</div>
-    <div class="year">2024 | 13 dez</div> 
-    <div class="container">
-        <video id="videoPlayer" autoplay muted loop>
-            <source src="trailer8.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
-            Seu navegador não suporta vídeo.
-        </video>
 
-        <div class="info">
-            <div class="buttons">
-                <!-- Botão para iniciar o vídeo -->
-                <button class="play-button" id="playButton">Iniciar Vídeo</button>
-                <!-- Botão para ativar/desativar som -->
-                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
-                <!-- Botão Voltar -->
-                <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
-            </div>
+    <audio id="tudumSound" src="tudum.m4a"></audio> <!-- Adiciona o som -->
+
+    <div class="highlight">
+        <video autoplay muted loop>
+            <source src="videos/familia.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        
+        <div class="overlay"></div> 
+        <div class="degrade"></div>
+
+        <div class="logo">
+            <img src="imagens/logo.png" alt="Logo AdamaFlix" style="width: 200px;">
+        </div>
+        <div class="titulo"> No Ritmo<br> do Cinema</div>
+        <div class="rating">★ ★ ★ ★ ★</div>
+        <div class="year">2024 | 13 dez</div> 
+        
+        <div class="buttons">
+            <a href="videoprincipal.html" class="botao">Assistir Agora</a>
+            <a href="index.html" class="botao">Voltar ao início</a>
+        </div>
+    </div>
+
+    <!-- Containers dos filmes -->
+    <div class="container">
+        <div class="film">
+            <a href="filme1.html"><img src="filme1.1.png" alt="Filme 1"></a>
+            <div class="film-title">Cantando na Chuva</div>
+        </div>
+        <div class="film">
+            <a href="filme2.html"><img src="filme2.1.png" alt="Filme 2"></a>
+            <div class="film-title">Guardiões da Galáxia</div>
+        </div>
+        <div class="film">
+            <a href="filme3.html"><img src="filme3.0.png" alt="Filme 3"></a>
+            <div class="film-title">Estúpido Cupido</div>
+        </div>
+        <div class="film">
+            <a href="filme4.html"><img src="filme4.0.png" alt="Filme 4"></a>
+            <div class="film-title4">Enrolados</div>
+        </div>
+    </div>
+
+    <div class="container2">
+       <div class="film">
+            <a href="filme5.html"><img src="filme5.0.png" alt="Filme 5"></a>
+            <div class="film-title5">FootLoose</div>
+        </div>
+        <div class="film">
+            <a href="filme6.html"><img src="filme6.0.png" alt="Filme 6"></a>
+            <div class="film-title6">Dirty Dance</div>
+        </div>
+        <div class="film">
+            <a href="filme7.html"><img src="filme7.0.png" alt="Filme 7"></a>
+             <div class="film-title7">Shrek</div>
+        </div>
+        <div class="film">
+            <a href="filme8.html"><img src="filme8.0.png" alt="Filme 8"></a>
+            <div class="film-title8">Madagascar 3</div>
         </div>
     </div>
 
     <script>
-        const videoPlayer = document.getElementById('videoPlayer');
-        const playButton = document.getElementById('playButton');
-        const soundButton = document.getElementById('soundButton');
-
-        // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
-        playButton.addEventListener('click', () => {
-            videoPlayer.play(); // Inicia o vídeo
-            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
-            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
-        });
-
-        // Ativar/desativar o som ao clicar no botão "Ativar Som"
-        soundButton.addEventListener('click', () => {
-            if (videoPlayer.muted) {
-                videoPlayer.muted = false;
-                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
-            } else {
-                videoPlayer.muted = true;
-                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
-            }
-        });
+        function playSound() {
+            var sound = document.getElementById('tudumSound');
+            sound.play();
+        }
     </script>
+
 </body>
 </html>

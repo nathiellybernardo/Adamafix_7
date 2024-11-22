@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Filme</title>
+    <style>
+         .year {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 550px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .rating {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 515px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .titulo {
+            position: absolute;
+            top: 415px; /* Mover o título para o topo */
+            left: 30px;
+            font-size: 40px !important;
+            font-weight: bold;
+            color: white;
+            z-index: 4; /* Garantir que o título fique acima de outros elementos */
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: brightness(0.5); /* Escurece o vídeo para melhor leitura */
+        }
+
+        .info {
+            position: absolute;
+            top: 580px; /* Ajustando a posição dos botões mais para cima */
+            left: 30px;
+            max-width: 600px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px; /* Diminui o espaço entre os botões */
+        }
+
+        .play-button, .sound-button, .more-info-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+        }
+
+        .play-button {
+            background-color: #e50914;
+        }
+
+        .play-button:hover {
+            background-color: #f40612;
+        }
+
+        .sound-button {
+            background-color: #2d2d2d;
+        }
+
+        .sound-button:hover {
+            background-color: #444444;
+        }
+
+        .play-button:hover, .sound-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="titulo">A Família<br>Addams</div>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <div class="year">2024 | 6 dez</div> 
+    <div class="container">
+        <video id="videoPlayer" autoplay muted loop>
+            <source src="trailer8.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+            Seu navegador não suporta vídeo.
+        </video>
+
+        <div class="info">
+            <div class="buttons">
+                <!-- Botão para iniciar o vídeo -->
+                <button class="play-button" id="playButton">Iniciar Vídeo</button>
+                <!-- Botão para ativar/desativar som -->
+                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
+                <!-- Botão Voltar -->
+                <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playButton = document.getElementById('playButton');
+        const soundButton = document.getElementById('soundButton');
+
+        // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
+        playButton.addEventListener('click', () => {
+            videoPlayer.play(); // Inicia o vídeo
+            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
+        });
+
+        // Ativar/desativar o som ao clicar no botão "Ativar Som"
+        soundButton.addEventListener('click', () => {
+            if (videoPlayer.muted) {
+                videoPlayer.muted = false;
+                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
+            } else {
+                videoPlayer.muted = true;
+                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
+            }
+        });
+    </script>
+</body>
+</html>

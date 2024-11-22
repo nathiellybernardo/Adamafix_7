@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Filme</title>
     <style>
+        /* CSS conforme modificado acima */
+    </style>
+</head>
+<body>
+    <div class="titulo"> Viva - A Vida <br> É Uma Festa</div>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <div class="year">2018 | 1h45min</div> 
+    <div class="container">
+        <video autoplay muted loop>
+            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+            Seu navegador não suporta vídeo.
+        </video>
+        <div class="info">
+            <div class="buttons">
+                <!-- Botão Voltar ao início -->
+                <a href="entrada.html"><button class="play-button">Voltar ao início</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Filme</title>
+    <style>
 .buttons {
     display: flex;            /* Flexbox para garantir que os itens sejam alinhados corretamente */
     justify-content: flex-start; /* Alinha os itens à esquerda */

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -71,14 +72,13 @@
             margin: 15px 0;
         }
 
-    
         .buttons {
             display: flex;
             gap: 10px;
             margin-top: 20px; /* Diminui o espaço entre os botões */
         }
 
-        .play-button, .more-info-button {
+        .play-button, .sound-button, .more-info-button {
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -95,28 +95,64 @@
         .play-button:hover {
             background-color: #f40612;
         }
- 
-        .play-button:hover {
+
+        .sound-button {
+            background-color: #2d2d2d;
+        }
+
+        .sound-button:hover {
+            background-color: #444444;
+        }
+
+        .play-button:hover, .sound-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
-     <div class="titulo">Hotel<br>Transilvânia 3</div>
-        <div class="rating">★ ★ ★ ★ ★</div>
-        <div class="year">2018 | 1h37min</div> 
+    <div class="titulo">Hotel<br>Transilvânia 3</div>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <div class="year">2018 | 1h37min</div> 
     <div class="container">
-        <video autoplay muted loop>
-            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+        <video id="videoPlayer" autoplay muted loop>
+            <source src="trailer7.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
             Seu navegador não suporta vídeo.
         </video>
 
-    
         <div class="info">
             <div class="buttons">
+                <!-- Botão para iniciar o vídeo -->
+                <button class="play-button" id="playButton">Iniciar Vídeo</button>
+                <!-- Botão para ativar/desativar som -->
+                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
+                <!-- Botão Voltar -->
                 <a href="entrada.html"><button class="play-button">Voltar ao início</button></a>
             </div>
         </div>
     </div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playButton = document.getElementById('playButton');
+        const soundButton = document.getElementById('soundButton');
+
+        // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
+        playButton.addEventListener('click', () => {
+            videoPlayer.play(); // Inicia o vídeo
+            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
+        });
+
+        // Ativar/desativar o som ao clicar no botão "Ativar Som"
+        soundButton.addEventListener('click', () => {
+            if (videoPlayer.muted) {
+                videoPlayer.muted = false;
+                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
+            } else {
+                videoPlayer.muted = true;
+                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
+            }
+        });
+    </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Filme</title>
     <style>
-         .year {
+        .year {
             position: absolute;
             left: 15px;
             z-index: 4;
@@ -71,7 +71,6 @@
             margin: 15px 0;
         }
 
-    
         .buttons {
             display: flex;
             gap: 10px;
@@ -115,6 +114,19 @@
         .more-info-button:hover {
             background-color: #444444;
         }
+
+        /* Barra de "Mais Informações" */
+        .more-info-bar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 5px;
+            display: none; /* Inicialmente oculto */
+        }
     </style>
 </head>
 <body>
@@ -140,6 +152,11 @@
             <!-- Botão "Mais Informações", inicialmente oculto -->
             <a href="infos7.html"><button class="more-info-button" id="infoButton" style="display: none;">Mais Informações</button></a>
         </div>
+
+        <!-- Barra de "Mais Informações" -->
+        <div class="more-info-bar" id="infoBar">
+            <a href="infos7.html" style="color: white; text-decoration: none;">Mais Informações</a>
+        </div>
     </div>
 
     <script>
@@ -147,6 +164,7 @@
         const playButton = document.getElementById('playButton');
         const soundButton = document.getElementById('soundButton');
         const infoButton = document.getElementById('infoButton');
+        const infoBar = document.getElementById('infoBar');
 
         // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
         playButton.addEventListener('click', () => {
@@ -161,6 +179,7 @@
                 videoPlayer.muted = false; // Ativa o som
                 soundButton.style.display = 'none'; // Esconde o botão "Ativar Som"
                 infoButton.style.display = 'inline-block'; // Exibe o botão "Mais Informações"
+                infoBar.style.display = 'block'; // Exibe a barra de "Mais Informações"
             }
         });
 
@@ -169,6 +188,7 @@
             playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
             soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
             infoButton.style.display = 'none'; // Esconde o botão "Mais Informações"
+            infoBar.style.display = 'none'; // Esconde a barra de "Mais Informações"
         });
 
         // Opcional: Quando o vídeo terminar (evento ended), reexibe o botão de play
@@ -176,6 +196,7 @@
             playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
             soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
             infoButton.style.display = 'none'; // Esconde o botão "Mais Informações"
+            infoBar.style.display = 'none'; // Esconde a barra de "Mais Informações"
         });
     </script>
 </body>

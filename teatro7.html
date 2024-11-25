@@ -107,13 +107,13 @@
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Novo botão "Mais Informações", no centro superior, com fundo vermelho e fonte branca */
+        /* Novo botão "Mais Informações", no centro superior, com fundo cinza e fonte branca */
         .more-info-button-top {
             position: absolute;
             top: 20px; /* Posição no topo */
             left: 50%;
             transform: translateX(-50%); /* Centraliza horizontalmente */
-            background-color: #e50914; /* Fundo vermelho */
+            background-color: #808080; /* Fundo cinza */
             color: white; /* Texto branco */
             padding: 5px 30px; /* Botão fino */
             font-size: 1rem;
@@ -124,7 +124,7 @@
         }
 
         .more-info-button-top:hover {
-            background-color: #f40612; /* Cor mais clara ao passar o mouse */
+            background-color: #666666; /* Cor mais escura ao passar o mouse */
         }
 
     </style>
@@ -160,7 +160,6 @@
         const videoPlayer = document.getElementById('videoPlayer');
         const playButton = document.getElementById('playButton');
         const soundButton = document.getElementById('soundButton');
-        const infoButton = document.getElementById('infoButton');
 
         // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
         playButton.addEventListener('click', () => {

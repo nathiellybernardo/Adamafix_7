@@ -129,6 +129,26 @@
             display: none; /* Inicialmente oculto */
         }
 
+        /* Novo botão "Mais Informações", no centro superior, com fundo vermelho e fonte branca */
+        .more-info-button-top {
+            position: absolute;
+            top: 20px; /* Posição no topo */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            background-color: #e50914; /* Fundo vermelho */
+            color: white; /* Texto branco */
+            padding: 5px 30px; /* Botão fino */
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .more-info-button-top:hover {
+            background-color: #f40612; /* Cor mais clara ao passar o mouse */
+        }
+
         /* Segundo botão de "Mais Informações", posicionado na parte inferior */
         .more-info-button-bottom {
             position: absolute;
@@ -172,6 +192,9 @@
                 <a href="infos7.html"><button class="more-info-button">Mais Informações</button></a>
             </div>
         </div>
+
+        <!-- Novo botão "Mais Informações", no centro superior -->
+        <a href="infos7.html"><button class="more-info-button-top">Mais Informações</button></a>
 
         <!-- Barra de "Mais Informações" -->
         <div class="more-info-bar" id="infoBar">

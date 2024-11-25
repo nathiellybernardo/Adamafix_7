@@ -38,13 +38,6 @@
             max-width: 600px;
         }
 
-        .logo {
-            width: 200px; /* Definindo o tamanho da logo */
-            margin-bottom: -100px;
-            margin-top: 230px;
-            margin-left: 8px;
-        }
-
         p {
             font-size: 1rem;
             margin: 15px 0;
@@ -87,23 +80,15 @@
         }
 
         .more-info-button {
-            background-color: #444444;
+            background-color: #2d2d2d;
         }
 
         .more-info-button:hover {
-            background-color: #666666;
+            background-color: #444444;
         }
     </style>
 </head>
 <body>
-    <!-- Remover título e colocar imagem -->
-    <div class="logo">
-        <img src="addams.png" alt="Logo Família Addams" class="logo"> <!-- Substitua pelo caminho da sua imagem -->
-    </div>
-
-    <div class="rating">★ ★ ★ ★ ★</div>
-    <div class="year">2019 | 1h26min</div>
-
     <div class="container">
         <video id="videoPlayer" autoplay muted loop>
             <source src="trailer23.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
@@ -112,26 +97,29 @@
 
         <div class="info">
             <div class="buttons">
-                <!-- Botões de Iniciar Vídeo, Mais Informações e Voltar ao Início -->
+                <!-- Botões iniciais -->
                 <button class="play-button" id="playButton">Iniciar Vídeo</button>
-                <a href="infos7.html"><button class="more-info-button">Mais Informações</button></a>
                 <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
-                <!-- Botão para ativar/desativar som -->
-                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
+                <a href="infos7.html"><button class="more-info-button" id="infoButton" style="display: none;">Mais Informações</button>
             </div>
         </div>
+
+        <!-- Botões que aparecem após iniciar o vídeo -->
+        <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
     </div>
 
     <script>
         const videoPlayer = document.getElementById('videoPlayer');
         const playButton = document.getElementById('playButton');
         const soundButton = document.getElementById('soundButton');
+        const infoButton = document.getElementById('infoButton');
 
         // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
         playButton.addEventListener('click', () => {
             videoPlayer.play(); // Inicia o vídeo
             playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
             soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
+            infoButton.style.display = 'inline-block'; // Exibe o botão de "Mais Informações"
         });
 
         // Ativar/desativar o som ao clicar no botão "Ativar Som"
@@ -139,6 +127,7 @@
             if (videoPlayer.muted) {
                 videoPlayer.muted = false;
                 soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
+                soundButton.style.display = 'none'; // Esconde o botão "Ativar Som"
             } else {
                 videoPlayer.muted = true;
                 soundButton.textContent = 'Ativar Som'; // Muda o texto do botão

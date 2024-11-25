@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -51,14 +50,13 @@
             margin: 15px 0;
         }
 
-    
         .buttons {
             display: flex;
             gap: 10px;
             margin-top: 20px; /* Diminui o espaço entre os botões */
         }
 
-        .play-button, .more-info-button {
+        .play-button, .more-info-button, .sound-button {
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -77,20 +75,25 @@
             color: rgb(255, 255, 255);
         }
 
+        .sound-button {
+            background-color: #2d2d2d;
+        }
+
         .play-button:hover {
             background-color: #f40612;
         }
 
         .more-info-button:hover, 
-        .play-button:hover {
+        .play-button:hover, 
+        .sound-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <video autoplay muted loop>
-            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+        <video id="videoPlayer" autoplay muted loop>
+            <source src="trailer24.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
             Seu navegador não suporta vídeo.
         </video>
 
@@ -98,10 +101,35 @@
 
         <div class="info">
             <div class="buttons">
-                <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
+                <a href="perfil4.html"><button class="play-button" id="playButton">Iniciar Vídeo</button></a>
+                <button class="sound-button" id="soundButton">Ativar Som</button>
                 <a href="infos8.html"><button class="more-info-button">Mais Informações</button></a>
             </div>
         </div>
     </div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playButton = document.getElementById('playButton');
+        const soundButton = document.getElementById('soundButton');
+
+        // Função para iniciar o vídeo
+        playButton.addEventListener('click', () => {
+            videoPlayer.play(); // Inicia o vídeo
+            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
+        });
+
+        // Função para alternar som
+        soundButton.addEventListener('click', () => {
+            if (videoPlayer.muted) {
+                videoPlayer.muted = false;
+                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
+            } else {
+                videoPlayer.muted = true;
+                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
+            }
+        });
+    </script>
 </body>
 </html>

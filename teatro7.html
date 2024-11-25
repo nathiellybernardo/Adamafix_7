@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -108,12 +107,21 @@
         .play-button:hover, .sound-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
+
+        .more-info-button {
+            background-color: #2d2d2d;
+        }
+
+        .more-info-button:hover {
+            background-color: #444444;
+        }
     </style>
 </head>
 <body>
-     <div class="titulo"> A Família<br>Addams</div>
-        <div class="rating">★ ★ ★ ★ ★</div>
-        <div class="year">2023 | 1h26min</div> 
+    <div class="titulo"> A Família<br>Addams</div>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <div class="year">2023 | 1h26min</div> 
+
     <div class="container">
         <video id="videoPlayer" autoplay muted loop>
             <source src="trailer23.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
@@ -128,6 +136,9 @@
                 <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
                 <a href="perfil4.html"><button class="play-button">Voltar ao início</button></a>
             </div>
+
+            <!-- Botão "Mais Informações", inicialmente oculto -->
+            <a href="infos7.html"><button class="more-info-button" id="infoButton" style="display: none;">Mais Informações</button></a>
         </div>
     </div>
 
@@ -135,6 +146,7 @@
         const videoPlayer = document.getElementById('videoPlayer');
         const playButton = document.getElementById('playButton');
         const soundButton = document.getElementById('soundButton');
+        const infoButton = document.getElementById('infoButton');
 
         // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
         playButton.addEventListener('click', () => {
@@ -143,14 +155,12 @@
             soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
         });
 
-        // Ativar/desativar o som ao clicar no botão "Ativar Som"
+        // Ativar som e substituir o botão "Ativar Som" pelo "Mais Informações"
         soundButton.addEventListener('click', () => {
             if (videoPlayer.muted) {
-                videoPlayer.muted = false;
-                soundButton.textContent = 'Desativar Som'; // Muda o texto do botão
-            } else {
-                videoPlayer.muted = true;
-                soundButton.textContent = 'Ativar Som'; // Muda o texto do botão
+                videoPlayer.muted = false; // Ativa o som
+                soundButton.style.display = 'none'; // Esconde o botão "Ativar Som"
+                infoButton.style.display = 'inline-block'; // Exibe o botão "Mais Informações"
             }
         });
 
@@ -158,12 +168,14 @@
         videoPlayer.addEventListener('pause', () => {
             playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
             soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
+            infoButton.style.display = 'none'; // Esconde o botão "Mais Informações"
         });
 
         // Opcional: Quando o vídeo terminar (evento ended), reexibe o botão de play
         videoPlayer.addEventListener('ended', () => {
             playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
             soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
+            infoButton.style.display = 'none'; // Esconde o botão "Mais Informações"
         });
     </script>
 </body>

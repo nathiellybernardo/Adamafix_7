@@ -128,6 +128,25 @@
             border-radius: 5px;
             display: none; /* Inicialmente oculto */
         }
+
+        /* Segundo botão de "Mais Informações", posicionado na parte inferior */
+        .more-info-button-bottom {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2d2d2d;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .more-info-button-bottom:hover {
+            background-color: #444444;
+        }
     </style>
 </head>
 <body>
@@ -158,6 +177,9 @@
         <div class="more-info-bar" id="infoBar">
             <a href="infos7.html" style="color: white; text-decoration: none;">Mais Informações</a>
         </div>
+
+        <!-- Segundo botão "Mais Informações", na parte inferior -->
+        <a href="infos7.html"><button class="more-info-button-bottom">Mais Informações</button></a>
     </div>
 
     <script>

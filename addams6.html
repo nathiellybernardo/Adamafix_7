@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,6 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Filme</title>
     <style>
+        .year {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 520px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .rating {
+            position: absolute;
+            left: 15px;
+            z-index: 4;
+            font-size: 1.2em;
+            margin-top: 480px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .titulo {
+            position: absolute;
+            top: 380px; /* Mover o título para o topo */
+            left: 30px;
+            font-size: 40px !important;
+            font-weight: bold;
+            color: white;
+            z-index: 4; /* Garantir que o título fique acima de outros elementos */
+        }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -38,26 +69,18 @@
             max-width: 600px;
         }
 
-        .logo {
-            width: 200px; /* Diminuindo o tamanho da logo */
-            margin-bottom: -100px;
-            margin-top: 230px;
-            margin-left: 8px;
-        }
-
         p {
             font-size: 1rem;
             margin: 15px 0;
         }
 
-    
         .buttons {
             display: flex;
             gap: 10px;
             margin-top: 20px; /* Diminui o espaço entre os botões */
         }
 
-        .play-button, .more-info-button {
+        .play-button, .sound-button {
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -71,36 +94,102 @@
             background-color: #e50914;
         }
 
-        .more-info-button {
-            background-color: #e50914;
-            color: rgb(255, 255, 255);
-        }
-
         .play-button:hover {
             background-color: #f40612;
         }
 
-        .more-info-button:hover, 
-        .play-button:hover {
+        .sound-button {
+            background-color: #2d2d2d;
+        }
+
+        .sound-button:hover {
+            background-color: #444444;
+        }
+
+        .play-button:hover, .sound-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
+
+        /* Novo botão "Mais Informações", no centro superior, com fundo cinza e fonte branca */
+        .more-info-button-top {
+            position: absolute;
+            top: 20px; /* Posição no topo */
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            background-color: #808080; /* Fundo cinza */
+            color: white; /* Texto branco */
+            padding: 5px 30px; /* Botão fino */
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .more-info-button-top:hover {
+            background-color: #666666; /* Cor mais escura ao passar o mouse */
+        }
+
     </style>
 </head>
 <body>
+    <div class="titulo">A Família<br>Addams</div>
+    <div class="rating">★ ★ ★ ★ ★</div>
+    <div class="year"> 1998 | 1h30min </div> 
+
     <div class="container">
-        <video autoplay muted loop>
-            <source src="videos/familia.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
+        <video id="videoPlayer" autoplay muted loop>
+            <source src="trailer22.mp4" type="video/mp4"> <!-- Substitua pelo caminho do seu vídeo -->
             Seu navegador não suporta vídeo.
         </video>
 
-        <div class="logo"><img src="imagens/addams.png" alt="Logo Família Addams" class="logo"></div> <!-- Diminuímos o tamanho da imagem da logo -->
-
         <div class="info">
             <div class="buttons">
+                <!-- Botão para iniciar o vídeo -->
+                <button class="play-button" id="playButton">Iniciar Vídeo</button>
+                <!-- Botão para ativar o som, inicialmente oculto -->
+                <button class="sound-button" id="soundButton" style="display: none;">Ativar Som</button>
+                <!-- Botão de voltar ao início -->
                 <a href="teatro.html"><button class="play-button">Voltar ao início</button></a>
-                <a href="+infos6.html"><button class="more-info-button">Mais Informações</button></a>
             </div>
         </div>
+
+        <!-- Novo botão "Mais Informações", no centro superior -->
+        <a href="+infos6.html"><button class="more-info-button-top">Mais Informações</button></a>
+
     </div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const playButton = document.getElementById('playButton');
+        const soundButton = document.getElementById('soundButton');
+
+        // Iniciar o vídeo ao clicar no botão "Iniciar Vídeo"
+        playButton.addEventListener('click', () => {
+            videoPlayer.play(); // Inicia o vídeo
+            playButton.style.display = 'none'; // Esconde o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'inline-block'; // Exibe o botão de "Ativar Som"
+        });
+
+        // Ativar som e substituir o botão "Ativar Som" pelo "Mais Informações"
+        soundButton.addEventListener('click', () => {
+            if (videoPlayer.muted) {
+                videoPlayer.muted = false; // Ativa o som
+                soundButton.style.display = 'none'; // Esconde o botão "Ativar Som"
+            }
+        });
+
+        // Quando o vídeo for pausado, reexibe o botão de play e esconde o de som
+        videoPlayer.addEventListener('pause', () => {
+            playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
+        });
+
+        // Opcional: Quando o vídeo terminar (evento ended), reexibe o botão de play
+        videoPlayer.addEventListener('ended', () => {
+            playButton.style.display = 'inline-block'; // Exibe o botão de "Iniciar Vídeo"
+            soundButton.style.display = 'none'; // Esconde o botão de "Ativar Som"
+        });
+    </script>
 </body>
 </html>
